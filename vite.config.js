@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-    base: '/Umkm-Website/', 
+    base: '/Itha-Snack/', 
     plugins: [
         tailwindcss(),
     ],
