@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-gold: hsl(var(--gold));
+  --color-warm-brown: hsl(var(--warm-brown));
+  --color-cream: hsl(var(--cream));
+}
+
+@layer base {
+  :root {
+    --background: 35 30% 96%;
+    --foreground: 25 30% 12%;
+
+    --card: 35 25% 93%;
+    --card-foreground: 25 30% 12%;
+
+    --popover: 35 30% 96%;
+    --popover-foreground: 25 30% 12%;
+
+    --primary: 30 80% 50%;
+    --primary-foreground: 35 30% 98%;
+
+    --secondary: 35 40% 88%;
+    --secondary-foreground: 25 30% 15%;
+
+    --muted: 35 20% 90%;
+    --muted-foreground: 25 15% 45%;
+
+    --accent: 15 70% 45%;
+    --accent-foreground: 35 30% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 30 80% 50%;
+
+    --radius: 0.75rem;
+
+    --gold: 43 90% 55%;
+    --gold-foreground: 35 30% 10%;
+    --warm-brown: 25 35% 25%;
+    --cream: 40 40% 95%;
+  }
+
+  .dark {
+    --background: 25 25% 8%;
+    --foreground: 35 30% 92%;
+    --card: 25 25% 12%;
+    --card-foreground: 35 30% 92%;
+    --popover: 25 25% 8%;
+    --popover-foreground: 35 30% 92%;
+    --primary: 30 80% 50%;
+    --primary-foreground: 35 30% 98%;
+    --secondary: 25 25% 18%;
+    --secondary-foreground: 35 30% 92%;
+    --muted: 25 20% 16%;
+    --muted-foreground: 35 15% 55%;
+    --accent: 15 70% 45%;
+    --accent-foreground: 35 30% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 25 20% 20%;
+    --input: 25 20% 20%;
+    --ring: 30 80% 50%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(43 90% 55%),
+      hsl(30 80% 50%),
+      hsl(15 70% 45%)
+    );
+  }
+
+  .bg-gradient-warm {
+    background: linear-gradient(135deg, hsl(35 30% 96%), hsl(35 40% 88%));
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(
+      180deg,
+      hsl(25 35% 15%) 0%,
+      hsl(25 30% 20%) 100%
+    );
+  }
+
+  .section-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+}

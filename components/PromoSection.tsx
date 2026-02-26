@@ -1,8 +1,19 @@
 import { motion } from "framer-motion";
-import promoPoster1 from "@/assets/promo-poster-1.png";
-import promoPoster2 from "@/assets/promo-poster-2.png";
 
 const PromoSection = () => {
+  const promos = [
+    {
+      title: "Paket Hemat 3 Bungkus",
+      description: "Nikmati diskon 20% untuk pembelian 3 bungkus",
+      bgColor: "bg-gradient-to-br from-primary to-orange-600",
+    },
+    {
+      title: "Rasa Baru Segera Hadir!",
+      description: "Stay tuned untuk rasa eksklusif kami",
+      bgColor: "bg-gradient-to-br from-amber-700 to-warm-brown",
+    },
+  ];
+
   return (
     <section id="promo" className="section-padding bg-background">
       <div className="container mx-auto">
@@ -21,7 +32,7 @@ const PromoSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {[promoPoster1, promoPoster2].map((poster, i) => (
+          {promos.map((promo, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -30,14 +41,12 @@ const PromoSection = () => {
               transition={{ delay: i * 0.2, duration: 0.6 }}
               className="group relative overflow-hidden rounded-2xl shadow-lg"
             >
-              <img
-                src={poster}
-                alt={`Itha Snack promo poster ${i + 1}`}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <p className="text-cream font-display text-xl font-bold">
-                  {i === 0 ? "Paket Hemat 3 Bungkus" : "Rasa Baru Segera Hadir!"}
+              <div className={`${promo.bgColor} w-full h-64 flex flex-col items-center justify-center p-6`}>
+                <p className="text-cream font-display text-2xl font-bold text-center">
+                  {promo.title}
+                </p>
+                <p className="text-cream/80 font-body text-center mt-2">
+                  {promo.description}
                 </p>
               </div>
             </motion.div>

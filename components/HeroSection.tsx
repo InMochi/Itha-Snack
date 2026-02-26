@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import heroBanner from "@/assets/hero-banner.png";
 
 const HeroSection = () => {
   return (
@@ -7,14 +6,9 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img
-          src={heroBanner}
-          alt="Golden crispy onion chips"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-hero opacity-70" />
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-hero">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-transparent" />
       </div>
 
       <div className="relative z-10 container mx-auto text-center px-4 pt-20">

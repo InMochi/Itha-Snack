@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Flame, Leaf, Award } from "lucide-react";
-import productBag from "@/assets/product-bag.png";
 
 const highlights = [
   {
@@ -39,7 +38,7 @@ const ProductSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Product image */}
+          {/* Product image placeholder */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -49,11 +48,11 @@ const ProductSection = () => {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-3xl" />
-              <img
-                src={productBag}
-                alt="Itha Snack onion chips package"
-                className="relative w-72 md:w-96 animate-float rounded-2xl"
-              />
+              <div className="relative w-72 md:w-96 h-80 bg-gradient-to-br from-primary/30 to-orange-600/30 rounded-2xl flex items-center justify-center animate-float">
+                <span className="font-display text-2xl text-primary font-bold">
+                  Itha Snack
+                </span>
+              </div>
             </div>
           </motion.div>
 
