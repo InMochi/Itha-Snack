@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temukan Kami - Itha Snack</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #faf8f5;
+      color: #2d2a26;
+    }
+
+    .findus-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-label {
+      color: #e67e22;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: bold;
+      color: #2d2a26;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .map-wrapper {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      height: 300px;
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .contact-icon-wrapper {
+      width: 50px;
+      height: 50px;
+      background-color: #fef3e6;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon-wrapper svg {
+      width: 24px;
+      height: 24px;
+      color: #e67e22;
+    }
+
+    .contact-label {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 5px;
+    }
+
+    .contact-value {
+      font-size: 16px;
+      font-weight: 500;
+      color: #2d2a26;
+    }
+
+    .wa-link {
+      text-decoration: none;
+      color: #2d2a26;
+    }
+
+    .wa-link:hover {
+      color: #e67e22;
+    }
+
+    .email-link {
+      text-decoration: none;
+      color: #2d2a26;
+    }
+
+    .email-link:hover {
+      color: #e67e22;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="findus" class="findus-section">
+    <div class="section-header">
+      <p class="section-label">Lokasi</p>
+      <h2 class="section-title">Temukan Kami</h2>
+    </div>
+
+    <div class="content-grid">
+
+      <div class="map-wrapper">
+        <iframe
+          title="Itha Snack Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d106.8!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDgnMDAuMCJF!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <div class="contact-info">
+
+        <div class="contact-item">
+          <div class="contact-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <p class="contact-label">Alamat</p>
+            <p class="contact-value">Jl. Rasa Gurih No. 12, Jakarta Selatan, Indonesia</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="contact-label">Telepon</p>
+            <a class="contact-value wa-link" href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </div>
+          <div>
+            <p class="contact-label">Email</p>
+            <a class="contact-value email-link" href="mailto:ithasnack@gmail.com">ithasnack@gmail.com</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
