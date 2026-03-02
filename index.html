@@ -5,23 +5,45 @@
     <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Itha Snack</title>
-  
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
-    <header class="bg-emerald-400 h-18">
+    <header class="bg-emerald-400 h-18 fixed w-screen">
       <div class="container mx-auto px-4 flex justify-start">
         <div class="mt-5 w-15">
-          <img src="./public/logo.png" alt="">
+          <img src="./public/logo.png" alt="" />
         </div>
-        <ul class="gap-3 flex">
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="index.html">Home</a></li>
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="about.html">About</a></li>
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="contact.html">Contact</a></li>
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="shop.html">Shop</a></li>
+        <ul class="gap-3 flex items-center text-white text-lg font-semibold">
+          <li class="mt-5 font-montserrat">
+            <a class="text-lg" href="index.html">Home</a>
+          </li>
+          <li class="mt-5 font-montserrat">
+            <a class="text-lg" href="about.html">About</a>
+          </li>
+          <li class="mt-5 font-montserrat">
+            <a class="text-lg" href="contact.html">Contact</a>
+          </li>
+          <li class="mt-5 font-montserrat">
+            <a class="text-lg" href="shop.html">Shop</a>
+          </li>
         </ul>
       </div>
     </header>
+
+    <div class="h-screen flex justify-center items-center">
+      <div class="flex text-center h-[80%] justify-evenly flex-col">
+        <p class="text-emerald-400">PREMIUM ONION CHIPS</p>
+        <p class="text-[96px]">Itha <span class="text-emerald-400">Snacks</span></p>
+        <p class="w-[70%] self-center">
+          Renyah, gurih, dan bikin nagih. Keripik bawang premium dengan cita
+          rasa yang tak terlupakan.
+        </p>
+        <div class="flex justify-between w-[50%] self-center text-white">
+          <a class="px-8 py-4 m-auto bg-emerald-400 rounded-2xl" href="#">Beli Sekarang</a>
+          <a class="p-5 m-auto" href="#">Lihat Produk</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
