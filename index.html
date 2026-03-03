@@ -4,12 +4,18 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Itha Snack</title>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
-    <header class="bg-emerald-400 h-18 fixed w-screen">
+    <header class="bg-[#47382e] h-18 fixed z-10 w-screen">
       <div class="container mx-auto px-4 flex justify-start">
         <div class="mt-5 w-15">
           <img src="./public/logo.png" alt="" />
@@ -31,17 +37,30 @@
       </div>
     </header>
 
-    <div class="h-screen flex justify-center items-center">
-      <div class="flex text-center h-[80%] justify-evenly flex-col">
-        <p class="text-emerald-400">PREMIUM ONION CHIPS</p>
-        <p class="text-[96px]">Itha <span class="text-emerald-400">Snacks</span></p>
-        <p class="w-[70%] self-center">
+    <div
+      class="h-screen bg-[url(/img/background.webp)] bg-cover relative flex justify-center items-center"
+    >
+      <div class="h-screen w-screen bg-black absolute opacity-50"></div>
+      <div
+        class="flex text-center h-[80%] text-white absolute justify-center gap-4 flex-col mt-10"
+      >
+        <p class="text-[#E68019] font-[dm_sans] tracking-[0.3em]">PREMIUM ONION CHIPS</p>
+        <p class="text-[96px] font-[playfair_display]">
+          Itha <span class="text-[#E68019]">Snacks</span>
+        </p>
+        <p class="w-[70%] self-center font-sans">
           Renyah, gurih, dan bikin nagih. Keripik bawang premium dengan cita
           rasa yang tak terlupakan.
         </p>
         <div class="flex justify-between w-[50%] self-center text-white">
-          <a class="px-8 py-4 m-auto bg-emerald-400 rounded-2xl" href="#">Beli Sekarang</a>
-          <a class="p-5 m-auto" href="#">Lihat Produk</a>
+          <a class="px-8 py-4 m-auto bg-[#E68019] rounded-[10px]" href="#"
+            >Beli Sekarang</a
+          >
+          <a
+            class="px-8 py-4 m-auto border border-white hover:bg-[#F7F4ED]/20 rounded-[10px]"
+            href="#"
+            >Lihat Produk</a
+          >
         </div>
       </div>
     </div>
