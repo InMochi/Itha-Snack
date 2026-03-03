@@ -11,6 +11,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    :root {
+      --background: hsl(35, 30%, 96%);
+      --foreground: hsl(25, 30%, 12%);
+      --primary: hsl(30, 80%, 50%);
+      --primary-10: hsla(30, 80%, 50%, 0.1);
+      --muted-foreground: hsl(25, 15%, 45%);
+      --border: hsl(30, 20%, 85%);
+    }
+
     body {
       font-family: 'Montserrat', sans-serif;
     }
@@ -19,12 +28,12 @@
       background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid var(--border);
     }
   </style>
 </head>
 
-<body class="bg-emerald-50/30">
+<body class="" style="background-color: var(--background);">
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
@@ -33,7 +42,7 @@
       offset: 100
     });
   </script>
-  <a href="https://wa.me/6281234567890"
+  <a href="https://wa.me/6282123699200"
     class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group">
     <i class="fa-brands fa-whatsapp text-3xl"></i>
     <span
@@ -44,17 +53,17 @@
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
 
-  <header class="bg-emerald-400 h-18">
+  <header class="h-18" style="background-color: var(--primary);">
     <div class="container mx-auto px-4 flex justify-start">
       <div class="mt-5 w-15">
         <img src="/logo.png" alt="Itha Snack Logo">
       </div>
       <ul class="gap-3 flex">
-        <li class="mt-5 font-montserrat"><a class="text-lg text-white font-semibold" href="index.html">Home</a></li>
-        <li class="mt-5 font-montserrat"><a class="text-lg text-white font-semibold" href="about.html">About</a></li>
-        <li class="mt-5 font-montserrat"><a class="text-lg text-white font-semibold" href="contact.html">Contact</a>
+        <li class="mt-5 font-montserrat"><a class="text-lg font-semibold" style="color: var(--foreground);" href="index.html">Home</a></li>
+        <li class="mt-5 font-montserrat"><a class="text-lg font-semibold" style="color: var(--foreground);" href="about.html">About</a></li>
+        <li class="mt-5 font-montserrat"><a class="text-lg font-semibold" style="color: var(--foreground);" href="contact.html">Contact</a>
         </li>
-        <li class="mt-5 font-montserrat"><a class="text-lg text-white font-semibold" href="shop.html">Shop</a></li>
+        <li class="mt-5 font-montserrat"><a class="text-lg font-semibold" style="color: var(--foreground);" href="shop.html">Shop</a></li>
       </ul>
     </div>
   </header>
@@ -62,26 +71,26 @@
   <main class="relative overflow-hidden py-24">
 
     <div
-      class="absolute -top-20 -left-20 w-96 h-96 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob">
+      class="absolute -top-20 -left-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style="background-color: var(--primary);">
     </div>
     <div
-      class="absolute top-1/2 -right-20 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000">
+      class="absolute top-1/2 -right-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000" style="background-color: var(--primary);">
     </div>
     <div
-      class="absolute -bottom-20 left-1/3 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-4000">
+      class="absolute -bottom-20 left-1/3 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-4000" style="background-color: var(--primary);">
     </div>
 
     <div class="container mx-auto px-6 relative">
 
       <section class="text-center mb-28">
         <span data-aos="fade-down"
-          class="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest text-emerald-600 uppercase bg-emerald-100 rounded-full">
+          class="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest uppercase bg-emerald-100 rounded-full" style="color: var(--primary); background-color: var(--primary-10);">
           Authentic Taste
         </span>
-        <h1 data-aos="zoom-in" class="text-5xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
-          Cerita Di Balik <span class="text-emerald-500">Itha Snack</span>
+        <h1 data-aos="zoom-in" class="text-5xl md:text-6xl font-bold mb-6 leading-tight" style="color: var(--foreground);">
+          Cerita Di Balik <span style="color: var(--primary);">Itha Snack</span>
         </h1>
-        <p data-aos="fade-up" data-aos-delay="200" class="max-w-3xl mx-auto text-gray-600 text-xl leading-relaxed">
+        <p data-aos="fade-up" data-aos-delay="200" class="max-w-3xl mx-auto text-xl leading-relaxed" style="color: var(--muted-foreground);">
           Lebih dari sekadar camilan. Kami percaya bahwa kebahagiaan besar bermula dari kunyahan kecil yang renyah dan
           penuh rasa.
           Hadir untuk menemani setiap cerita hangat Anda.
@@ -92,7 +101,7 @@
         <div data-aos="fade-right" data-aos-delay="100"
           class="glass-card p-12 rounded-[2rem] shadow-xl hover:-translate-y-3 transition-all duration-500 group">
           <div
-            class="w-14 h-14 bg-emerald-500 rounded-2xl mb-6 flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-transform">
+            class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-transform" style="background-color: var(--primary);">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -101,8 +110,8 @@
                 d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
             </svg>
           </div>
-          <h2 class="text-3xl font-bold text-gray-800 mb-5">Visi Kami</h2>
-          <p class="text-gray-600 text-lg leading-relaxed">
+          <h2 class="text-3xl font-bold mb-5" style="color: var(--foreground);">Visi Kami</h2>
+          <p class="text-lg leading-relaxed" style="color: var(--muted-foreground);">
             Menjadi pelopor camilan lokal berkualitas tinggi yang menyatukan tradisi rasa dengan standar modern,
             menjadikan produk kebanggaan nusantara di setiap meja keluarga.
           </p>
@@ -111,27 +120,27 @@
         <div data-aos="fade-left" data-aos-delay="300"
           class="glass-card p-12 rounded-[2rem] shadow-xl hover:-translate-y-3 transition-all duration-500 group">
           <div
-            class="w-14 h-14 bg-emerald-500 rounded-2xl mb-6 flex items-center justify-center text-white shadow-lg group-hover:-rotate-12 transition-transform">
+            class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center text-white shadow-lg group-hover:-rotate-12 transition-transform" style="background-color: var(--primary);">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h2 class="text-3xl font-bold text-gray-800 mb-5">Misi Kami</h2>
-          <ul class="text-gray-600 text-lg space-y-4">
+          <h2 class="text-3xl font-bold mb-5" style="color: var(--foreground);">Misi Kami</h2>
+          <ul class="text-lg space-y-4" style="color: var(--muted-foreground);">
             <li class="flex items-center gap-3">
               <span
-                class="flex-shrink-0 w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: var(--primary-10); color: var(--primary);">1</span>
               Hanya menggunakan bahan baku pilihan & segar.
             </li>
             <li class="flex items-center gap-3">
               <span
-                class="flex-shrink-0 w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: var(--primary-10); color: var(--primary);">2</span>
               Terus berinovasi menciptakan varian rasa yang unik.
             </li>
             <li class="flex items-center gap-3">
               <span
-                class="flex-shrink-0 w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: var(--primary-10); color: var(--primary);">3</span>
               Memberdayakan UMKM dan petani lokal Indonesia.
             </li>
           </ul>
@@ -141,66 +150,49 @@
       <section class="grid md:grid-cols-5 gap-10 items-stretch mb-24">
 
         <div data-aos="fade-up" class="md:col-span-2 glass-card p-10 rounded-[2rem] shadow-xl">
-          <h2 class="text-3xl font-bold text-gray-800 mb-8">Hubungi Kami</h2>
+          <h2 class="text-3xl font-bold mb-8" style="color: var(--foreground);">Hubungi Kami</h2>
 
           <div class="space-y-8">
             <div class="flex items-start gap-5">
               <div class="text-2xl">📍</div>
               <div>
-                <p class="font-bold text-gray-800">Alamat</p>
-                <p class="text-gray-600 leading-snug">Jl. Contoh No.123, Jakarta Selatan</p>
+                <p class="font-bold" style="color: var(--foreground);">Alamat</p>
+                <p class="leading-snug" style="color: var(--muted-foreground);">Jl. Contoh No.123, Jakarta Selatan</p>
               </div>
             </div>
             <div class="flex items-start gap-5">
               <div class="text-2xl">📧</div>
               <div>
-                <p class="font-bold text-gray-800">Email</p>
-                <p class="text-gray-600">hello@ithasnack.com</p>
+                <p class="font-bold" style="color: var(--foreground);">Email</p>
+                <p style="color: var(--muted-foreground);">hello@ithasnack.com</p>
               </div>
             </div>
             <div class="flex items-start gap-5">
               <div class="text-2xl">📞</div>
               <div>
-                <p class="font-bold text-gray-800">WhatsApp</p>
-                <a href="https://wa.me/6281234567890" target="_blank"
-                  class="text-emerald-500 font-bold hover:text-emerald-600 transition">
-                  +62 812-3456-7890
+                <p class="font-bold" style="color: var(--foreground);">WhatsApp</p>
+                <a href="https://wa.me/6282123699200" target="_blank"
+                  class="font-bold transition" style="color: var(--primary);">
+                  +62 821-2369-9200
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="mt-8 pt-6 border-t border-gray-100">
+          <div class="mt-8 pt-6 border-t" style="border-color: var(--border);">
             <div class="flex items-start gap-5">
               <div class="text-2xl">⏰</div>
               <div>
-                <p class="font-bold text-gray-800">Jam Operasional</p>
-                <p class="text-gray-600 text-sm">Senin - Sabtu: 09:00 - 18:00</p>
-                <p class="text-emerald-500 text-xs font-semibold">Minggu: Tutup (Hanya Online)</p>
+                <p class="font-bold" style="color: var(--foreground);">Jam Operasional</p>
+                <p class="text-sm" style="color: var(--muted-foreground);">Senin - Sabtu: 09:00 - 18:00</p>
+                <p class="text-xs font-semibold" style="color: var(--primary);">Minggu: Tutup (Hanya Online)</p>
               </div>
             </div>
           </div>
 
-          <div class="mt-8">
-            <p class="font-bold text-gray-800 mb-4 uppercase text-xs tracking-widest">Tersedia di Marketplace</p>
-            <div class="flex flex-wrap gap-3">
-              <a href="#"
-                class="flex items-center gap-2 px-4 py-2 bg-[#EE4D2D] text-white rounded-xl text-sm font-bold hover:scale-105 transition shadow-md">
-                <span>🟠 Shopee</span>
-              </a>
-              <a href="#"
-                class="flex items-center gap-2 px-4 py-2 bg-[#03AC0E] text-white rounded-xl text-sm font-bold hover:scale-105 transition shadow-md">
-                <span>🟢 Tokopedia</span>
-              </a>
-              <a href="#"
-                class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 text-gray-700 rounded-xl text-sm font-bold hover:scale-105 transition shadow-md">
-                <span>🛵 GoFood</span>
-              </a>
-            </div>
-          </div>
 
           <div class="mt-12">
-            <p class="font-bold text-gray-800 mb-4 uppercase text-xs tracking-widest">Temukan kami di</p>
+            <p class="font-bold mb-4 uppercase text-xs tracking-widest" style="color: var(--foreground);">Temukan kami di</p>
             <div class="flex gap-4">
               <a href="#"
                 class="w-12 h-12 flex items-center justify-center bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg">
@@ -208,12 +200,12 @@
               </a>
 
               <a href="#"
-                class="w-12 h-12 flex items-center justify-center bg-[#1877F2] text-white rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg">
+                class="w-12 h-12 flex items-center justify-center text-white rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg" style="background-color: #1877F2;">
                 <i class="fa-brands fa-facebook-f text-2xl"></i>
               </a>
 
               <a href="#"
-                class="w-12 h-12 flex items-center justify-center bg-black text-white rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg">
+                class="w-12 h-12 flex items-center justify-center text-white rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg" style="background-color: var(--foreground);">
                 <i class="fa-brands fa-tiktok text-2xl"></i>
               </a>
             </div>
@@ -237,50 +229,50 @@
 
   <div class="relative h-24 overflow-hidden -mt-10">
     <svg viewBox="0 0 1440 120" class="absolute bottom-0 w-full h-full preserve-3d">
-      <path fill="#10b981" fill-opacity="1"
+      <path fill="var(--primary)" fill-opacity="1"
         d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,80C672,64,768,64,864,80C960,96,1056,128,1152,128C1248,128,1344,96,1392,80L1440,64V120H0Z">
       </path>
     </svg>
   </div>
 
-  <footer class="bg-emerald-500 text-white pt-20 pb-10">
+  <footer class="text-white pt-20 pb-10" style="background-color: var(--primary);">
     <div class="container mx-auto px-6">
       <div class="grid md:grid-cols-3 gap-16 mb-16">
 
         <div data-aos="fade-up">
           <h3 class="text-3xl font-extrabold mb-6 tracking-tight">Itha Snack.</h3>
-          <p class="text-emerald-50 leading-relaxed mb-6">
+          <p class="leading-relaxed mb-6" style="color: var(--background);">
             Menghadirkan senyuman lewat setiap renyah camilan yang kami buat dengan penuh cinta.
           </p>
-          <div class="h-1.5 w-12 bg-yellow-300 rounded-full"></div>
+          <div class="h-1.5 w-12 rounded-full" style="background-color: var(--background);"></div>
         </div>
 
         <div data-aos="fade-up" data-aos-delay="200">
           <h3 class="text-lg font-bold mb-6 uppercase tracking-widest">Navigasi</h3>
           <ul class="space-y-4">
             <li><a href="index.html"
-                class="hover:text-yellow-300 transition-colors flex items-center gap-2"><span>→</span> Home</a></li>
+                class="hover:opacity-70 transition-colors flex items-center gap-2" style="color: var(--background);"><span>→</span> Home</a></li>
             <li><a href="about.html"
-                class="hover:text-yellow-300 transition-colors flex items-center gap-2"><span>→</span> About Us</a></li>
+                class="hover:opacity-70 transition-colors flex items-center gap-2" style="color: var(--background);"><span>→</span> About Us</a></li>
             <li><a href="shop.html"
-                class="hover:text-yellow-300 transition-colors flex items-center gap-2"><span>→</span> Shop</a></li>
+                class="hover:opacity-70 transition-colors flex items-center gap-2" style="color: var(--background);"><span>→</span> Shop</a></li>
             <li><a href="contact.html"
-                class="hover:text-yellow-300 transition-colors flex items-center gap-2"><span>→</span> Contact</a></li>
+                class="hover:opacity-70 transition-colors flex items-center gap-2" style="color: var(--background);"><span>→</span> Contact</a></li>
           </ul>
         </div>
 
         <div data-aos="fade-up" data-aos-delay="400">
           <h3 class="text-lg font-bold mb-6 uppercase tracking-widest">Mulai Pesan?</h3>
-          <p class="text-emerald-50 mb-8">Dapatkan penawaran khusus untuk pemesanan pertama via WhatsApp.</p>
+          <p class="mb-8" style="color: var(--background);">Dapatkan penawaran khusus untuk pemesanan pertama via WhatsApp.</p>
           <a href="https://wa.me/6281234567890" target="_blank"
-            class="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-emerald-600 transition-all duration-200 bg-white font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 shadow-xl hover:bg-yellow-300">
+            class="group relative inline-flex items-center justify-center px-8 py-3 font-bold transition-all duration-200 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 shadow-xl" style="background-color: var(--background); color: var(--primary);">
             Order Sekarang
           </a>
         </div>
 
       </div>
 
-      <div class="pt-8 border-t border-emerald-400/50 text-center text-emerald-100 text-sm font-medium">
+      <div class="pt-8 border-t text-center text-sm font-medium" style="border-color: var(--primary); opacity: 0.8; color: var(--background);">
         &copy; 2026 Itha Snack. Dibuat dengan ❤️ untuk pecinta camilan Indonesia.
       </div>
     </div>
