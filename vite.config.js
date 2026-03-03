@@ -1,9 +1,20 @@
 import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
+import { resolve } from 'path'
+import tailwindcss from '@tailwindcss/vite' // Ganti baris ini
 
 export default defineConfig({
-    base: '/Itha-Snack/', 
-    plugins: [
-        tailwindcss(),
-    ],
+  base: '/Itha-Snack/', 
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        about: resolve(__dirname, 'about.html'),
+        contact: resolve(__dirname, 'contact.html'),
+        shop: resolve(__dirname, 'shop.html'),
+      },
+    },
+  },
+  plugins: [
+    tailwindcss(),
+  ],
 })

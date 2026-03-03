@@ -1,27 +1,1018 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Itha Snack</title>
-  
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-    <header class="bg-emerald-400 h-18">
-      <div class="container mx-auto px-4 flex justify-start">
-        <div class="mt-5 w-15">
-          <img src="./public/logo.png" alt="">
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop - Itha Snack</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Nunito:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --brown-dark: #47382e;
+      --brown-mid: #6b4f3a;
+      --brown-light: #9c7b5e;
+      --cream: #f5ede3;
+      --cream-dark: #eddfd0;
+      --amber: #d4894a;
+      --amber-light: #e8a96a;
+      --sand: #f0e0c8;
+    }
+
+    * {
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .font-montserrat {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    @keyframes float1 {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0)
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(4deg)
+      }
+    }
+
+    @keyframes float2 {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0)
+      }
+
+      50% {
+        transform: translateY(-14px) rotate(-3deg)
+      }
+    }
+
+    @keyframes pulse-b {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.09)
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% center
+      }
+
+      100% {
+        background-position: 200% center
+      }
+    }
+
+    @keyframes bounce-s {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-7px)
+      }
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0)
+      }
+
+      100% {
+        transform: translateX(-50%)
+      }
+    }
+
+    .float-1 {
+      animation: float1 4s ease-in-out infinite;
+    }
+
+    .float-2 {
+      animation: float2 5.5s ease-in-out infinite;
+    }
+
+    .pulse-badge {
+      animation: pulse-b 2s ease-in-out infinite;
+    }
+
+    .bounce-soft {
+      animation: bounce-s 2s ease-in-out infinite;
+    }
+
+    .marquee-track {
+      animation: marquee 22s linear infinite;
+    }
+
+    .shimmer-btn {
+      background: linear-gradient(90deg, var(--brown-dark), var(--amber), var(--brown-mid), var(--amber-light));
+      background-size: 200% auto;
+      animation: shimmer 3.5s linear infinite;
+    }
+
+    .product-card {
+      transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 24px 48px rgba(71, 56, 46, .18);
+    }
+
+    .product-card:hover .card-img {
+      transform: scale(1.09) rotate(-2deg);
+    }
+
+    .card-img {
+      transition: transform .4s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    .testi-card {
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .testi-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(71, 56, 46, .14);
+    }
+
+    .badge-new {
+      background: linear-gradient(135deg, #c97b3a, #a85c28);
+    }
+
+    .badge-best {
+      background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid));
+    }
+
+    #toast {
+      transition: transform .4s cubic-bezier(.34, 1.56, .64, 1), opacity .3s ease;
+      transform: translateY(100px);
+      opacity: 0;
+    }
+
+    #toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    header a[href="shop.html"] {
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--cream);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--brown-light);
+      border-radius: 99px;
+    }
+  </style>
+</head>
+
+<body style="background-color: var(--cream); overflow-x: hidden;">
+
+  <!-- ── HEADER (unchanged structure, updated palette) ── -->
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+  <header class="h-18 fixed z-50 w-full" style="background-color: var(--brown-dark);">
+    <div class="container mx-auto px-4 flex justify-start">
+      <div class="mt-5 w-15">
+        <img src="./public/logo.png" alt="" />
+      </div>
+      <ul class="gap-3 flex items-center text-lg font-semibold" style="color:#fff;">
+        <li class="mt-5 font-montserrat"><a class="text-lg" href="index.html">Home</a></li>
+        <li class="mt-5 font-montserrat"><a class="text-lg" href="about.html">About</a></li>
+        <li class="mt-5 font-montserrat"><a class="text-lg" href="contact.html">Contact</a></li>
+        <li class="mt-5 font-montserrat"><a class="text-lg" href="shop.html">Shop</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ── MARQUEE PROMO BAR ── -->
+  <div class="pt-18 overflow-hidden" style="background-color: var(--brown-mid);">
+    <div class="flex whitespace-nowrap marquee-track py-2">
+      <span class="text-white text-sm font-semibold mx-8">🌿 Snack Sehat • Bebas Pengawet</span>
+      <span class="text-amber-200 text-sm mx-8">✨ Gratis Ongkir Min. Order Rp 50.000</span>
+      <span class="text-white text-sm font-semibold mx-8">🔥 Promo Beli 3 Gratis 1!</span>
+      <span class="text-amber-200 text-sm mx-8">💛 100% Bahan Alami</span>
+      <span class="text-white text-sm font-semibold mx-8">📦 Kemasan Ramah Lingkungan</span>
+      <span class="text-amber-200 text-sm mx-8">✅ Halal MUI • BPOM</span>
+      <!-- dup for seamless loop -->
+      <span class="text-white text-sm font-semibold mx-8">🌿 Snack Sehat • Bebas Pengawet</span>
+      <span class="text-amber-200 text-sm mx-8">✨ Gratis Ongkir Min. Order Rp 50.000</span>
+      <span class="text-white text-sm font-semibold mx-8">🔥 Promo Beli 3 Gratis 1!</span>
+      <span class="text-amber-200 text-sm mx-8">💛 100% Bahan Alami</span>
+      <span class="text-white text-sm font-semibold mx-8">📦 Kemasan Ramah Lingkungan</span>
+      <span class="text-amber-200 text-sm mx-8">✅ Halal MUI • BPOM</span>
+    </div>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="relative overflow-hidden pt-16 pb-28"
+    style="background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 60%, var(--cream-dark) 100%);">
+    <!-- blobs -->
+    <div class="absolute top-10 right-10 w-80 h-80 rounded-full blur-3xl opacity-30 float-1"
+      style="background:var(--amber-light);"></div>
+    <div class="absolute -bottom-10 -left-10 w-96 h-96 rounded-full blur-3xl opacity-25 float-2"
+      style="background:var(--brown-light);"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-14">
+
+        <!-- text -->
+        <div class="flex-1 text-center lg:text-left" id="hero-text">
+          <div class="inline-flex items-center gap-2 bg-white border rounded-full px-4 py-2 mb-6 shadow-sm"
+            style="border-color:var(--cream-dark);">
+            <span class="w-2 h-2 rounded-full pulse-badge inline-block" style="background:var(--amber);"></span>
+            <span class="text-sm font-semibold" style="color:var(--brown-dark);">Toko Snack Sehat #1</span>
+          </div>
+
+          <h1 class="font-montserrat text-5xl lg:text-6xl font-black leading-tight mb-5"
+            style="color:var(--brown-dark);">
+            Sehat itu<br>
+            <span style="color:var(--amber); position:relative;">
+              Enak &amp; Seru!
+              <svg style="position:absolute;bottom:-6px;left:0;width:100%;" viewBox="0 0 220 12" fill="none">
+                <path d="M2 8 Q55 2 110 8 Q165 14 218 8" stroke="#d4894a" stroke-width="3" stroke-linecap="round"
+                  fill="none" />
+              </svg>
+            </span>
+          </h1>
+
+          <p class="text-lg mb-8 max-w-md mx-auto lg:mx-0" style="color:var(--brown-light);">
+            Snack lezat dari bahan alami pilihan, tanpa pengawet, tanpa bahan berbahaya. Cocok untuk camilan harian
+            kamu! 🥗
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="#produk"
+              class="shimmer-btn text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition-shadow duration-300 hover:shadow-xl">
+              🛍️ Lihat Produk
+            </a>
+            <a href="#cara-order"
+              class="font-bold px-8 py-3.5 rounded-full border-2 transition-colors duration-200 bg-white hover:bg-amber-50"
+              style="color:var(--brown-dark); border-color:var(--brown-light);">
+              📋 Cara Order
+            </a>
+          </div>
+
+          <!-- stats -->
+          <div class="flex gap-8 mt-10 justify-center lg:justify-start">
+            <div class="text-center">
+              <div class="font-montserrat font-black text-2xl" style="color:var(--amber);">500+</div>
+              <div class="text-xs" style="color:var(--brown-light);">Pelanggan Puas</div>
+            </div>
+            <div class="w-px" style="background:var(--cream-dark);"></div>
+            <div class="text-center">
+              <div class="font-montserrat font-black text-2xl" style="color:var(--amber);">15+</div>
+              <div class="text-xs" style="color:var(--brown-light);">Varian Produk</div>
+            </div>
+            <div class="w-px" style="background:var(--cream-dark);"></div>
+            <div class="text-center">
+              <div class="font-montserrat font-black text-2xl" style="color:var(--amber);">4.9★</div>
+              <div class="text-xs" style="color:var(--brown-light);">Rating</div>
+            </div>
+          </div>
         </div>
-        <ul class="gap-3 flex">
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="index.html">Home</a></li>
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="about.html">About</a></li>
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="contact.html">Contact</a></li>
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="shop.html">Shop</a></li>
+
+        <!-- poster card -->
+        <div class="flex-1 flex justify-center" id="hero-visual">
+          <div class="relative">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-sm w-full relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 rounded-full -translate-y-1/2 translate-x-1/2"
+                style="background:var(--sand);"></div>
+              <div class="absolute bottom-0 left-0 w-24 h-24 rounded-full translate-y-1/2 -translate-x-1/2"
+                style="background:var(--cream-dark);"></div>
+              <div class="relative z-10 text-center">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl bounce-soft"
+                  style="background:var(--sand);">🌿</div>
+                <div class="font-montserrat font-black text-2xl mb-1" style="color:var(--brown-dark);">Itha Snack</div>
+                <div class="font-semibold text-sm mb-5" style="color:var(--brown-light);">Healthy &amp; Delicious</div>
+
+                <div class="rounded-2xl p-4 mb-5 text-left"
+                  style="background:linear-gradient(135deg, var(--brown-dark), var(--brown-mid));">
+                  <div class="text-white font-montserrat font-black text-lg">PROMO HARI INI</div>
+                  <div class="text-amber-200 text-sm">Beli 3 Gratis 1 semua varian!</div>
+                  <div class="text-white font-black text-2xl mt-1">Hemat 25%</div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2">
+                  <div class="rounded-xl p-2" style="background:var(--cream);">
+                    <div class="text-xl">🥜</div>
+                    <div class="text-xs font-semibold" style="color:var(--brown-mid);">Kacang</div>
+                  </div>
+                  <div class="rounded-xl p-2" style="background:var(--sand);">
+                    <div class="text-xl">🍯</div>
+                    <div class="text-xs font-semibold" style="color:var(--brown-mid);">Granola</div>
+                  </div>
+                  <div class="rounded-xl p-2" style="background:var(--cream-dark);">
+                    <div class="text-xl">🍓</div>
+                    <div class="text-xs font-semibold" style="color:var(--brown-mid);">Dried Fruit</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -top-4 -left-4 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-lg pulse-badge"
+              style="background:var(--amber);">🔥 Terlaris!</div>
+            <div class="absolute -bottom-4 -right-4 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-lg"
+              style="background:var(--brown-dark);">✅ Halal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── KEUNGGULAN ── -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5" id="keunggulan">
+        <div class="text-center p-6 rounded-2xl group cursor-default transition-colors duration-200 hover:bg-amber-50"
+          style="background:var(--cream);">
+          <div class="text-3xl mb-3 inline-block group-hover:scale-110 transition-transform duration-200">🌿</div>
+          <div class="font-bold text-sm" style="color:var(--brown-dark);">Bahan Alami</div>
+          <div class="text-xs mt-1" style="color:var(--brown-light);">No Pengawet</div>
+        </div>
+        <div class="text-center p-6 rounded-2xl group cursor-default transition-colors duration-200 hover:bg-amber-50"
+          style="background:var(--sand);">
+          <div class="text-3xl mb-3 inline-block group-hover:scale-110 transition-transform duration-200">🧪</div>
+          <div class="font-bold text-sm" style="color:var(--brown-dark);">Sudah BPOM</div>
+          <div class="text-xs mt-1" style="color:var(--brown-light);">Terjamin Aman</div>
+        </div>
+        <div class="text-center p-6 rounded-2xl group cursor-default transition-colors duration-200 hover:bg-amber-50"
+          style="background:var(--cream-dark);">
+          <div class="text-3xl mb-3 inline-block group-hover:scale-110 transition-transform duration-200">📦</div>
+          <div class="font-bold text-sm" style="color:var(--brown-dark);">Kemas Rapi</div>
+          <div class="text-xs mt-1" style="color:var(--brown-light);">Siap Kirim</div>
+        </div>
+        <div class="text-center p-6 rounded-2xl group cursor-default transition-colors duration-200 hover:bg-amber-50"
+          style="background:var(--cream);">
+          <div class="text-3xl mb-3 inline-block group-hover:scale-110 transition-transform duration-200">💛</div>
+          <div class="font-bold text-sm" style="color:var(--brown-dark);">Halal MUI</div>
+          <div class="text-xs mt-1" style="color:var(--brown-light);">Bersertifikat</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUK ── -->
+  <section id="produk" class="py-20" style="background:var(--cream);">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="font-semibold text-sm uppercase tracking-widest" style="color:var(--amber);">Katalog</span>
+        <h2 class="font-montserrat font-black text-4xl mt-2" style="color:var(--brown-dark);">Menu Produk Kami</h2>
+        <p class="mt-3 max-w-md mx-auto" style="color:var(--brown-light);">Semua produk dibuat fresh dengan bahan
+          pilihan. Stok terbatas setiap hari!</p>
+      </div>
+
+      <!-- filter tabs -->
+      <div class="flex gap-3 justify-center mb-10 flex-wrap">
+        <button onclick="filterProducts('all')" id="filter-all"
+          class="filter-btn px-5 py-2 rounded-full text-sm font-semibold text-white shadow transition-all duration-200"
+          style="background:var(--brown-dark);">🍀 Semua</button>
+        <button onclick="filterProducts('kacang')" id="filter-kacang"
+          class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white border transition-all duration-200"
+          style="color:var(--brown-mid); border-color:var(--cream-dark);">🥜 Kacang</button>
+        <button onclick="filterProducts('granola')" id="filter-granola"
+          class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white border transition-all duration-200"
+          style="color:var(--brown-mid); border-color:var(--cream-dark);">🍯 Granola</button>
+        <button onclick="filterProducts('buah')" id="filter-buah"
+          class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white border transition-all duration-200"
+          style="color:var(--brown-mid); border-color:var(--cream-dark);">🍓 Buah Kering</button>
+      </div>
+
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+        <!-- card template: just swap emoji, name, desc, price, category -->
+        <div class="product-card bg-white rounded-3xl overflow-hidden shadow-md cursor-pointer" data-category="kacang"
+          onclick="openOrder(this)">
+          <div class="relative h-48 flex items-center justify-center overflow-hidden" style="background:var(--cream);">
+            <span class="text-6xl card-img inline-block">🥜</span>
+            <span class="badge-best absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full">Best
+              Seller</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-montserrat font-bold text-lg" style="color:var(--brown-dark);">Kacang Mede Panggang</h3>
+            <p class="text-sm mt-1 mb-3" style="color:var(--brown-light);">Kacang mede premium dipanggang dengan sedikit
+              garam himalaya.</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-montserrat font-black text-xl" style="color:var(--amber);">Rp 25.000</span><span
+                  class="text-xs ml-1" style="color:var(--cream-dark);">/100gr</span></div>
+              <button
+                class="w-9 h-9 rounded-full text-white text-lg flex items-center justify-center transition-opacity hover:opacity-80"
+                style="background:var(--brown-dark);"
+                onclick="event.stopPropagation(); addToCart('Kacang Mede Panggang',25000)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-3xl overflow-hidden shadow-md cursor-pointer" data-category="granola"
+          onclick="openOrder(this)">
+          <div class="relative h-48 flex items-center justify-center overflow-hidden" style="background:var(--sand);">
+            <span class="text-6xl card-img inline-block">🍯</span>
+            <span
+              class="badge-new absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full">Baru!</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-montserrat font-bold text-lg" style="color:var(--brown-dark);">Granola Madu</h3>
+            <p class="text-sm mt-1 mb-3" style="color:var(--brown-light);">Campuran oat, kacang, dan madu asli. Cocok
+              untuk sarapan.</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-montserrat font-black text-xl" style="color:var(--amber);">Rp 35.000</span><span
+                  class="text-xs ml-1" style="color:var(--cream-dark);">/250gr</span></div>
+              <button
+                class="w-9 h-9 rounded-full text-white text-lg flex items-center justify-center transition-opacity hover:opacity-80"
+                style="background:var(--brown-dark);"
+                onclick="event.stopPropagation(); addToCart('Granola Madu',35000)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-3xl overflow-hidden shadow-md cursor-pointer" data-category="buah"
+          onclick="openOrder(this)">
+          <div class="relative h-48 flex items-center justify-center overflow-hidden"
+            style="background:var(--cream-dark);">
+            <span class="text-6xl card-img inline-block">🍓</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-montserrat font-bold text-lg" style="color:var(--brown-dark);">Stroberi Kering</h3>
+            <p class="text-sm mt-1 mb-3" style="color:var(--brown-light);">Stroberi asli dikeringkan alami, manis tanpa
+              tambahan gula.</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-montserrat font-black text-xl" style="color:var(--amber);">Rp 28.000</span><span
+                  class="text-xs ml-1" style="color:var(--cream-dark);">/80gr</span></div>
+              <button
+                class="w-9 h-9 rounded-full text-white text-lg flex items-center justify-center transition-opacity hover:opacity-80"
+                style="background:var(--brown-dark);"
+                onclick="event.stopPropagation(); addToCart('Stroberi Kering',28000)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-3xl overflow-hidden shadow-md cursor-pointer" data-category="kacang"
+          onclick="openOrder(this)">
+          <div class="relative h-48 flex items-center justify-center overflow-hidden" style="background:var(--sand);">
+            <span class="text-6xl card-img inline-block">🌰</span>
+            <span
+              class="badge-best absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full">Favorit</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-montserrat font-bold text-lg" style="color:var(--brown-dark);">Mix Kacang Almond</h3>
+            <p class="text-sm mt-1 mb-3" style="color:var(--brown-light);">Campuran almond, walnut, dan hazelnut
+              panggang. Kaya protein.</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-montserrat font-black text-xl" style="color:var(--amber);">Rp 45.000</span><span
+                  class="text-xs ml-1" style="color:var(--cream-dark);">/150gr</span></div>
+              <button
+                class="w-9 h-9 rounded-full text-white text-lg flex items-center justify-center transition-opacity hover:opacity-80"
+                style="background:var(--brown-dark);"
+                onclick="event.stopPropagation(); addToCart('Mix Kacang Almond',45000)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-3xl overflow-hidden shadow-md cursor-pointer" data-category="granola"
+          onclick="openOrder(this)">
+          <div class="relative h-48 flex items-center justify-center overflow-hidden" style="background:var(--cream);">
+            <span class="text-6xl card-img inline-block">🥣</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-montserrat font-bold text-lg" style="color:var(--brown-dark);">Sereal Coklat Hitam</h3>
+            <p class="text-sm mt-1 mb-3" style="color:var(--brown-light);">Sereal dark chocolate 70%, tinggi antioksidan
+              dan rendah gula.</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-montserrat font-black text-xl" style="color:var(--amber);">Rp 32.000</span><span
+                  class="text-xs ml-1" style="color:var(--cream-dark);">/200gr</span></div>
+              <button
+                class="w-9 h-9 rounded-full text-white text-lg flex items-center justify-center transition-opacity hover:opacity-80"
+                style="background:var(--brown-dark);"
+                onclick="event.stopPropagation(); addToCart('Sereal Coklat Hitam',32000)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-3xl overflow-hidden shadow-md cursor-pointer" data-category="buah"
+          onclick="openOrder(this)">
+          <div class="relative h-48 flex items-center justify-center overflow-hidden" style="background:var(--sand);">
+            <span class="text-6xl card-img inline-block">🥭</span>
+            <span
+              class="badge-new absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full">Baru!</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-montserrat font-bold text-lg" style="color:var(--brown-dark);">Mangga Kering</h3>
+            <p class="text-sm mt-1 mb-3" style="color:var(--brown-light);">Mangga harum manis asli, tanpa pewarna dan
+              pengawet buatan.</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-montserrat font-black text-xl" style="color:var(--amber);">Rp 22.000</span><span
+                  class="text-xs ml-1" style="color:var(--cream-dark);">/100gr</span></div>
+              <button
+                class="w-9 h-9 rounded-full text-white text-lg flex items-center justify-center transition-opacity hover:opacity-80"
+                style="background:var(--brown-dark);"
+                onclick="event.stopPropagation(); addToCart('Mangga Kering',22000)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-3xl overflow-hidden shadow-md cursor-pointer" data-category="kacang"
+          onclick="openOrder(this)">
+          <div class="relative h-48 flex items-center justify-center overflow-hidden"
+            style="background:var(--cream-dark);">
+            <span class="text-6xl card-img inline-block">🌱</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-montserrat font-bold text-lg" style="color:var(--brown-dark);">Edamame Kering</h3>
+            <p class="text-sm mt-1 mb-3" style="color:var(--brown-light);">Edamame renyah kaya protein nabati. Ideal
+              untuk diet sehat.</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-montserrat font-black text-xl" style="color:var(--amber);">Rp 18.000</span><span
+                  class="text-xs ml-1" style="color:var(--cream-dark);">/100gr</span></div>
+              <button
+                class="w-9 h-9 rounded-full text-white text-lg flex items-center justify-center transition-opacity hover:opacity-80"
+                style="background:var(--brown-dark);"
+                onclick="event.stopPropagation(); addToCart('Edamame Kering',18000)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-3xl overflow-hidden shadow-md cursor-pointer" data-category="granola"
+          onclick="openOrder(this)">
+          <div class="relative h-48 flex items-center justify-center overflow-hidden" style="background:var(--cream);">
+            <span class="text-6xl card-img inline-block">🫐</span>
+            <span
+              class="badge-best absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full">Premium</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-montserrat font-bold text-lg" style="color:var(--brown-dark);">Granola Blueberry</h3>
+            <p class="text-sm mt-1 mb-3" style="color:var(--brown-light);">Granola premium dengan blueberry kering asli.
+              Kaya antioksidan.</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-montserrat font-black text-xl" style="color:var(--amber);">Rp 42.000</span><span
+                  class="text-xs ml-1" style="color:var(--cream-dark);">/250gr</span></div>
+              <button
+                class="w-9 h-9 rounded-full text-white text-lg flex items-center justify-center transition-opacity hover:opacity-80"
+                style="background:var(--brown-dark);"
+                onclick="event.stopPropagation(); addToCart('Granola Blueberry',42000)">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CARA ORDER ── -->
+  <section id="cara-order" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="font-semibold text-sm uppercase tracking-widest" style="color:var(--amber);">Mudah &amp;
+          Cepat</span>
+        <h2 class="font-montserrat font-black text-4xl mt-2" style="color:var(--brown-dark);">Cara Pesan</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-20 h-20 text-white rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg"
+            style="background:var(--brown-dark);">🛒</div>
+          <div class="font-montserrat font-bold mb-2" style="color:var(--brown-dark);">Pilih Produk</div>
+          <p class="text-sm" style="color:var(--brown-light);">Pilih snack favorit dari katalog</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 text-white rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg"
+            style="background:var(--brown-mid);">💬</div>
+          <div class="font-montserrat font-bold mb-2" style="color:var(--brown-dark);">Chat WA</div>
+          <p class="text-sm" style="color:var(--brown-light);">Konfirmasi pesanan via WhatsApp</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 text-white rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg"
+            style="background:var(--brown-dark);">💳</div>
+          <div class="font-montserrat font-bold mb-2" style="color:var(--brown-dark);">Bayar QRIS</div>
+          <p class="text-sm" style="color:var(--brown-light);">Scan QRIS atau transfer bank</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 text-white rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow-lg"
+            style="background:var(--brown-mid);">📦</div>
+          <div class="font-montserrat font-bold mb-2" style="color:var(--brown-dark);">Terima Paket</div>
+          <p class="text-sm" style="color:var(--brown-light);">Dikirim dalam 1-2 hari kerja</p>
+        </div>
+      </div>
+      <div class="text-center mt-10">
+        <a href="https://wa.me/628123456789?text=Halo%20Itha%20Snack%2C%20saya%20mau%20pesan!" target="_blank"
+          class="inline-flex items-center gap-3 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 hover:opacity-90"
+          style="background:#25d366;">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          Pesan via WhatsApp Sekarang
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QRIS SECTION ── -->
+  <section id="qris" class="py-20 relative overflow-hidden"
+    style="background:linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-mid) 100%);">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2">
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+
+        <!-- QR card -->
+        <div class="flex-1 flex justify-center">
+          <div class="bg-white rounded-3xl p-8 shadow-2xl max-w-xs w-full text-center">
+            <div class="font-montserrat font-black text-lg mb-1" style="color:var(--brown-dark);">Scan &amp; Bayar</div>
+            <div class="text-xs mb-5" style="color:var(--brown-light);">QRIS — Berlaku semua e-wallet &amp; m-banking
+            </div>
+            <div class="rounded-2xl p-4 mb-4 border-2 inline-block"
+              style="background:var(--cream); border-color:var(--cream-dark);">
+              <svg width="160" height="160" viewBox="0 0 160 160" fill="none">
+                <rect width="160" height="160" fill="white" />
+                <rect x="10" y="10" width="50" height="50" rx="4" fill="#47382e" />
+                <rect x="18" y="18" width="34" height="34" rx="2" fill="white" />
+                <rect x="24" y="24" width="22" height="22" rx="1" fill="#47382e" />
+                <rect x="100" y="10" width="50" height="50" rx="4" fill="#47382e" />
+                <rect x="108" y="18" width="34" height="34" rx="2" fill="white" />
+                <rect x="114" y="24" width="22" height="22" rx="1" fill="#47382e" />
+                <rect x="10" y="100" width="50" height="50" rx="4" fill="#47382e" />
+                <rect x="18" y="108" width="34" height="34" rx="2" fill="white" />
+                <rect x="24" y="114" width="22" height="22" rx="1" fill="#47382e" />
+                <rect x="70" y="10" width="8" height="8" fill="#47382e" />
+                <rect x="82" y="10" width="8" height="8" fill="#47382e" />
+                <rect x="70" y="22" width="8" height="8" fill="#47382e" />
+                <rect x="82" y="34" width="8" height="8" fill="#47382e" />
+                <rect x="70" y="46" width="8" height="8" fill="#47382e" />
+                <rect x="70" y="70" width="8" height="8" fill="#47382e" />
+                <rect x="94" y="70" width="8" height="8" fill="#47382e" />
+                <rect x="118" y="70" width="8" height="8" fill="#47382e" />
+                <rect x="142" y="70" width="8" height="8" fill="#47382e" />
+                <rect x="82" y="82" width="8" height="8" fill="#47382e" />
+                <rect x="106" y="82" width="8" height="8" fill="#47382e" />
+                <rect x="130" y="82" width="8" height="8" fill="#47382e" />
+                <rect x="70" y="94" width="8" height="8" fill="#47382e" />
+                <rect x="94" y="94" width="8" height="8" fill="#47382e" />
+                <rect x="118" y="94" width="8" height="8" fill="#47382e" />
+                <rect x="68" y="68" width="24" height="24" rx="4" fill="white" />
+                <rect x="72" y="72" width="16" height="16" rx="2" fill="#d4894a" />
+                <text x="80" y="84" text-anchor="middle" fill="white" font-size="10" font-weight="bold">I</text>
+              </svg>
+            </div>
+            <div class="text-xs mb-3" style="color:var(--brown-light);">a.n. <span class="font-bold"
+                style="color:var(--brown-dark);">Itha Snack</span></div>
+            <div class="flex gap-2 justify-center flex-wrap">
+              <span class="bg-blue-100 text-blue-600 text-xs font-semibold px-2 py-1 rounded-lg">GoPay</span>
+              <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-lg">OVO</span>
+              <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-lg">Dana</span>
+              <span class="bg-orange-100 text-orange-600 text-xs font-semibold px-2 py-1 rounded-lg">ShopeePay</span>
+              <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-1 rounded-lg">M-Banking</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- text -->
+        <div class="flex-1 text-white text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6"
+            style="background:rgba(255,255,255,.15);">
+            <span class="text-lg" style="color:var(--amber-light);">⚡</span>
+            <span class="text-sm font-semibold">Pembayaran Instan</span>
+          </div>
+          <h2 class="font-montserrat font-black text-4xl mb-4">Bayar Mudah<br>Pakai QRIS</h2>
+          <p class="text-lg mb-8 max-w-md" style="color:var(--cream-dark);">Satu kode QR untuk semua metode pembayaran
+            digital. Cepat, aman, dan langsung terkonfirmasi.</p>
+          <div class="grid grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0">
+            <div class="rounded-2xl p-4 border"
+              style="background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.2);">
+              <div class="text-2xl mb-2">⚡</div>
+              <div class="font-bold text-sm">Konfirmasi Instan</div>
+              <div class="text-xs mt-1" style="color:var(--cream-dark);">Langsung diproses</div>
+            </div>
+            <div class="rounded-2xl p-4 border"
+              style="background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.2);">
+              <div class="text-2xl mb-2">🔒</div>
+              <div class="font-bold text-sm">100% Aman</div>
+              <div class="text-xs mt-1" style="color:var(--cream-dark);">Terenkripsi penuh</div>
+            </div>
+            <div class="rounded-2xl p-4 border"
+              style="background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.2);">
+              <div class="text-2xl mb-2">📱</div>
+              <div class="font-bold text-sm">Semua E-Wallet</div>
+              <div class="text-xs mt-1" style="color:var(--cream-dark);">GoPay, OVO, Dana +</div>
+            </div>
+            <div class="rounded-2xl p-4 border"
+              style="background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.2);">
+              <div class="text-2xl mb-2">🏦</div>
+              <div class="font-bold text-sm">Semua Bank</div>
+              <div class="text-xs mt-1" style="color:var(--cream-dark);">BCA, BNI, BRI, dll</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONI ── -->
+  <section class="py-20" style="background:var(--cream);">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="font-semibold text-sm uppercase tracking-widest" style="color:var(--amber);">Review</span>
+        <h2 class="font-montserrat font-black text-4xl mt-2" style="color:var(--brown-dark);">Kata Pelanggan Kami</h2>
+        <div class="flex items-center justify-center gap-1 mt-3">
+          <span class="text-yellow-500 text-xl">★★★★★</span>
+          <span class="text-sm ml-2" style="color:var(--brown-light);">4.9/5 dari 500+ ulasan</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="testi-card bg-white rounded-3xl p-6 shadow-sm border" style="border-color:var(--cream-dark);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl font-black text-white"
+              style="background:var(--brown-dark);">A</div>
+            <div>
+              <div class="font-bold" style="color:var(--brown-dark);">Aulia R.</div>
+              <div class="text-yellow-500 text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed" style="color:var(--brown-light);">"Granola madu nya enak banget! Udah jadi
+            sarapan rutin saya. Anak-anak juga suka!"</p>
+          <div class="text-xs mt-3" style="color:var(--cream-dark);">2 minggu lalu · Granola Madu</div>
+        </div>
+        <div class="testi-card bg-white rounded-3xl p-6 shadow-sm border" style="border-color:var(--cream-dark);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl font-black text-white"
+              style="background:var(--brown-mid);">R</div>
+            <div>
+              <div class="font-bold" style="color:var(--brown-dark);">Rizky F.</div>
+              <div class="text-yellow-500 text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed" style="color:var(--brown-light);">"Kacang medenya premium, gurih pas.
+            Packaging cantik bisa buat hadiah. Recommended!"</p>
+          <div class="text-xs mt-3" style="color:var(--cream-dark);">1 bulan lalu · Kacang Mede Panggang</div>
+        </div>
+        <div class="testi-card bg-white rounded-3xl p-6 shadow-sm border" style="border-color:var(--cream-dark);">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-xl font-black text-white"
+              style="background:var(--amber);">S</div>
+            <div>
+              <div class="font-bold" style="color:var(--brown-dark);">Sari W.</div>
+              <div class="text-yellow-500 text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed" style="color:var(--brown-light);">"Pas lagi diet nemu itha snack. Mix
+            almond bikin kenyang tapi tetap sehat. Harganya wajar!"</p>
+          <div class="text-xs mt-3" style="color:var(--cream-dark);">3 minggu lalu · Mix Kacang Almond</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CART STICKY BAR ── -->
+  <div id="cart-bar" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden">
+    <div class="text-white px-6 py-3.5 rounded-2xl shadow-2xl flex items-center gap-4 min-w-72"
+      style="background:var(--brown-dark);">
+      <span class="text-xl">🛒</span>
+      <div class="flex-1">
+        <div class="text-xs opacity-60">Keranjang</div>
+        <div class="font-bold" id="cart-summary">0 item • Rp 0</div>
+      </div>
+      <button onclick="openCheckout()"
+        class="font-bold px-5 py-2 rounded-xl text-sm transition-colors duration-200 text-white hover:opacity-80"
+        style="background:var(--amber);">Pesan →</button>
+    </div>
+  </div>
+
+  <!-- ── TOAST ── -->
+  <div id="toast"
+    class="fixed bottom-24 right-6 z-50 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3"
+    style="background:var(--brown-dark);">
+    <span class="text-lg">✅</span>
+    <span id="toast-msg" class="text-sm font-semibold"></span>
+  </div>
+
+  <!-- ── CHECKOUT MODAL ── -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4"
+    style="background:rgba(71,56,46,.6); backdrop-filter:blur(8px);" onclick="if(event.target===this) closeCheckout()">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="font-montserrat font-black text-xl" style="color:var(--brown-dark);">🛒 Ringkasan Pesanan</h3>
+        <button onclick="closeCheckout()"
+          class="w-8 h-8 rounded-full flex items-center justify-center transition-colors hover:opacity-70"
+          style="background:var(--cream); color:var(--brown-mid);">✕</button>
+      </div>
+      <div id="cart-items-list" class="space-y-3 mb-6"></div>
+      <div class="pt-4 mb-6" style="border-top:1px solid var(--cream-dark);">
+        <div class="flex justify-between text-sm mb-2" style="color:var(--brown-light);"><span>Subtotal</span><span
+            id="modal-subtotal">Rp 0</span></div>
+        <div class="flex justify-between text-sm mb-2" style="color:var(--brown-light);"><span>Ongkir</span><span
+            style="color:var(--amber);">Gratis*</span></div>
+        <div class="flex justify-between font-montserrat font-black text-lg mt-3" style="color:var(--brown-dark);">
+          <span>Total</span><span id="modal-total" style="color:var(--amber);">Rp 0</span></div>
+        <div class="text-xs mt-1" style="color:var(--brown-light);">*Gratis ongkir min. order Rp 50.000</div>
+      </div>
+      <a id="wa-order-btn" href="#" target="_blank"
+        class="block text-center font-bold py-4 rounded-2xl transition-opacity duration-200 mb-3 text-white hover:opacity-90"
+        style="background:#25d366;">💬 Konfirmasi via WhatsApp</a>
+      <button onclick="showQRIS()"
+        class="block w-full text-center font-bold py-4 rounded-2xl transition-opacity duration-200 text-white hover:opacity-90"
+        style="background:var(--brown-dark);">📲 Bayar dengan QRIS</button>
+    </div>
+  </div>
+
+  <!-- ── QRIS MODAL ── -->
+  <div id="qris-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4"
+    style="background:rgba(71,56,46,.6); backdrop-filter:blur(8px);" onclick="if(event.target===this) closeQRIS()">
+    <div class="relative bg-white rounded-3xl shadow-2xl max-w-sm w-full p-8 text-center">
+      <button onclick="closeQRIS()"
+        class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-sm hover:opacity-70 transition-opacity"
+        style="background:var(--cream); color:var(--brown-mid);">✕</button>
+      <div class="font-montserrat font-black text-xl mb-1" style="color:var(--brown-dark);">Scan QRIS</div>
+      <div class="text-sm mb-5" style="color:var(--brown-light);">Total: <span id="qris-total" class="font-black"
+          style="color:var(--amber);">Rp 0</span></div>
+      <div class="rounded-2xl p-6 mb-5 border-2 inline-block"
+        style="background:var(--cream); border-color:var(--cream-dark);">
+        <svg width="160" height="160" viewBox="0 0 160 160" fill="none">
+          <rect width="160" height="160" fill="white" />
+          <rect x="10" y="10" width="50" height="50" rx="4" fill="#47382e" />
+          <rect x="18" y="18" width="34" height="34" rx="2" fill="white" />
+          <rect x="24" y="24" width="22" height="22" rx="1" fill="#47382e" />
+          <rect x="100" y="10" width="50" height="50" rx="4" fill="#47382e" />
+          <rect x="108" y="18" width="34" height="34" rx="2" fill="white" />
+          <rect x="114" y="24" width="22" height="22" rx="1" fill="#47382e" />
+          <rect x="10" y="100" width="50" height="50" rx="4" fill="#47382e" />
+          <rect x="18" y="108" width="34" height="34" rx="2" fill="white" />
+          <rect x="24" y="114" width="22" height="22" rx="1" fill="#47382e" />
+          <rect x="68" y="68" width="24" height="24" rx="4" fill="white" />
+          <rect x="72" y="72" width="16" height="16" rx="2" fill="#d4894a" />
+          <text x="80" y="84" text-anchor="middle" fill="white" font-size="10" font-weight="bold">I</text>
+        </svg>
+      </div>
+      <div class="text-xs mb-4" style="color:var(--brown-light);">Setelah bayar, kirim bukti ke WA kami ya! 💛</div>
+      <a href="https://wa.me/628123456789" target="_blank"
+        class="inline-block text-white font-bold px-6 py-2.5 rounded-xl text-sm hover:opacity-90 transition-opacity"
+        style="background:#25d366;">📤 Kirim Bukti via WA</a>
+    </div>
+  </div>
+
+<!-- ── FOOTER ── -->
+<footer class="text-white pt-20 pb-10" style="background-color: #47382e;">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-16 mb-16">
+
+      <div>
+        <h3 class="text-3xl font-extrabold mb-6 tracking-tight">Itha Snack.</h3>
+        <p class="leading-relaxed mb-6" style="color: #f5ede3;">
+          Menghadirkan senyuman lewat setiap renyah camilan yang kami buat dengan penuh cinta.
+        </p>
+        <div class="h-1.5 w-12 rounded-full" style="background-color: #f5ede3;"></div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-bold mb-6 uppercase tracking-widest">Navigasi</h3>
+        <ul class="space-y-4">
+          <li><a href="index.html" class="hover:opacity-70 transition-opacity flex items-center gap-2" style="color: #f5ede3;"><span>→</span> Home</a></li>
+          <li><a href="about.html" class="hover:opacity-70 transition-opacity flex items-center gap-2" style="color: #f5ede3;"><span>→</span> About Us</a></li>
+          <li><a href="shop.html" class="hover:opacity-70 transition-opacity flex items-center gap-2" style="color: #f5ede3;"><span>→</span> Shop</a></li>
+          <li><a href="contact.html" class="hover:opacity-70 transition-opacity flex items-center gap-2" style="color: #f5ede3;"><span>→</span> Contact</a></li>
         </ul>
       </div>
-    </header>
-  </body>
+
+      <div>
+        <h3 class="text-lg font-bold mb-6 uppercase tracking-widest">Mulai Pesan?</h3>
+        <p class="mb-8" style="color: #f5ede3;">Dapatkan penawaran khusus untuk pemesanan pertama via WhatsApp.</p>
+        <a href="https://wa.me/6281234567890" target="_blank"
+          class="inline-flex items-center justify-center px-8 py-3 font-bold rounded-full shadow-xl transition-opacity hover:opacity-90 focus:outline-none"
+          style="background-color: #f5ede3; color: #47382e;">
+          Order Sekarang
+        </a>
+      </div>
+
+    </div>
+
+    <div class="pt-8 border-t text-center text-sm font-medium"
+      style="border-color: rgba(245,237,227,0.2); opacity: 0.8; color: #f5ede3;">
+      &copy; 2026 Itha Snack. Dibuat dengan ❤️ untuk pecinta camilan Indonesia.
+    </div>
+  </div>
+</footer>
+
+
+  <!-- ── JS ── -->
+  <script>
+    const C = {
+      dark: '#47382e',
+      mid: '#6b4f3a',
+      amber: '#d4894a',
+      cream: '#f5ede3',
+    };
+
+    let cart = {};
+
+    function addToCart(name, price) {
+      cart[name] ? cart[name].qty++ : (cart[name] = { price, qty: 1 });
+      updateCartBar();
+      showToast(name + ' ditambahkan! 🛒');
+    }
+
+    function updateCartBar() {
+      const keys = Object.keys(cart);
+      if (!keys.length) { document.getElementById('cart-bar').classList.add('hidden'); return; }
+      document.getElementById('cart-bar').classList.remove('hidden');
+      const qty = keys.reduce((s, k) => s + cart[k].qty, 0);
+      const total = keys.reduce((s, k) => s + cart[k].price * cart[k].qty, 0);
+      document.getElementById('cart-summary').textContent = qty + ' item • Rp ' + total.toLocaleString('id-ID');
+    }
+
+    function openCheckout() { document.getElementById('checkout-modal').classList.remove('hidden'); renderCartItems(); }
+    function closeCheckout() { document.getElementById('checkout-modal').classList.add('hidden'); }
+    function showQRIS() { closeCheckout(); document.getElementById('qris-modal').classList.remove('hidden'); }
+    function closeQRIS() { document.getElementById('qris-modal').classList.add('hidden'); }
+
+    function renderCartItems() {
+      const list = document.getElementById('cart-items-list');
+      const keys = Object.keys(cart);
+      if (!keys.length) { list.innerHTML = '<p style="color:' + C.mid + ';text-align:center;padding:16px;">Keranjang kosong</p>'; return; }
+      let total = 0, waText = 'Halo Itha Snack! Saya mau pesan:%0A';
+      list.innerHTML = keys.map(name => {
+        const { price, qty } = cart[name], sub = price * qty;
+        total += sub;
+        waText += '- ' + name + ' x' + qty + ' = Rp ' + sub.toLocaleString('id-ID') + '%0A';
+        return `<div style="display:flex;justify-content:space-between;align-items:center;background:var(--cream);border-radius:12px;padding:12px 16px;">
+            <div>
+              <div style="font-weight:600;font-size:.875rem;color:var(--brown-dark);">${name}</div>
+              <div style="font-size:.75rem;color:var(--brown-light);">Rp ${price.toLocaleString('id-ID')} × ${qty}</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="font-weight:800;font-size:.875rem;color:var(--amber);">Rp ${sub.toLocaleString('id-ID')}</span>
+              <button onclick="removeFromCart('${name}')" style="width:24px;height:24px;border-radius:50%;border:none;background:#fde8e8;color:#e53e3e;cursor:pointer;font-size:.75rem;">✕</button>
+            </div>
+          </div>`;
+      }).join('');
+      waText += 'Total: Rp ' + total.toLocaleString('id-ID');
+      document.getElementById('modal-subtotal').textContent = 'Rp ' + total.toLocaleString('id-ID');
+      document.getElementById('modal-total').textContent = 'Rp ' + total.toLocaleString('id-ID');
+      document.getElementById('qris-total').textContent = 'Rp ' + total.toLocaleString('id-ID');
+      document.getElementById('wa-order-btn').href = 'https://wa.me/628123456789?text=' + waText;
+    }
+
+    function removeFromCart(name) { delete cart[name]; renderCartItems(); updateCartBar(); }
+
+    function openOrder(card) {
+      const name = card.querySelector('h3').textContent;
+      const price = parseInt(card.querySelector('[style*="amber"]').textContent.replace(/[^0-9]/g, ''));
+      addToCart(name, price);
+    }
+
+    function filterProducts(cat) {
+      document.querySelectorAll('#product-grid > div').forEach(c => {
+        c.style.display = (cat === 'all' || c.dataset.category === cat) ? '' : 'none';
+      });
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.style.background = 'white';
+        b.style.color = C.mid;
+        b.classList.add('border');
+      });
+      const a = document.getElementById('filter-' + cat);
+      a.style.background = C.dark;
+      a.style.color = '#fff';
+      a.classList.remove('border');
+    }
+
+    let toastTimer;
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      t.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    // GSAP
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('#hero-text > *', { y: 30, opacity: 0, stagger: .12, duration: .8, ease: 'power3.out' });
+    gsap.from('#hero-visual', { x: 40, opacity: 0, duration: 1, delay: .3, ease: 'power3.out' });
+    gsap.from('#keunggulan > div', { scrollTrigger: { trigger: '#keunggulan', start: 'top 80%' }, y: 30, opacity: 0, stagger: .1, duration: .6, ease: 'power2.out' });
+    gsap.from('#product-grid > div', { scrollTrigger: { trigger: '#product-grid', start: 'top 80%' }, y: 40, opacity: 0, stagger: .08, duration: .6, ease: 'power2.out' });
+  </script>
+</body>
+
 </html>
