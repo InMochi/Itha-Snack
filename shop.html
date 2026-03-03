@@ -232,7 +232,7 @@
       .nav-logo-icon {
         width: 38px;
         height: 38px;
-        background: #e68019;
+        background: transparent;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -244,6 +244,7 @@
       .nav-logo-text {
         font-family: "Playfair Display", serif;
         font-size: 1.3rem;
+        font-weight: 700;
         color: white;
         letter-spacing: 0.5px;
       }
@@ -279,7 +280,7 @@
     <script type="module" src="/src/main.js"></script>
     <header>
       <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icon"><i class="fas fa-cookie-bite"></i></div>
+        <div class="nav-logo-icon"><img src="./public/logo.png" alt="Logo" class="w-full h-full object-cover"></div>
         <span class="nav-logo-text">Itha Snack</span>
       </a>
       <nav>
@@ -305,7 +306,7 @@
           >✨ Gratis Ongkir Min. Order Rp 50.000</span
         >
         <span class="text-white text-sm font-semibold mx-8"
-          >🔥 Promo Beli 3 Gratis 1!</span
+          >🔥 Promo Beli 2 Gratis 1!</span
         >
         <span class="text-amber-200 text-sm mx-8">💛 100% Bahan Alami</span>
         <span class="text-white text-sm font-semibold mx-8"
@@ -320,7 +321,7 @@
           >✨ Gratis Ongkir Min. Order Rp 50.000</span
         >
         <span class="text-white text-sm font-semibold mx-8"
-          >🔥 Promo Beli 3 Gratis 1!</span
+          >🔥 Promo Beli 2 Gratis 1!</span
         >
         <span class="text-amber-200 text-sm mx-8">💛 100% Bahan Alami</span>
         <span class="text-white text-sm font-semibold mx-8"
@@ -409,7 +410,7 @@
                 href="#produk"
                 class="shimmer-btn text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition-shadow duration-300 hover:shadow-xl"
               >
-                🛍️ Lihat Produk
+                Lihat Produk
               </a>
               <a
                 href="#cara-order"
@@ -442,7 +443,7 @@
                   class="font-montserrat font-black text-2xl"
                   style="color: var(--amber)"
                 >
-                  15+
+                  2+
                 </div>
                 <div class="text-xs" style="color: var(--brown-light)">
                   Varian Produk
@@ -479,10 +480,10 @@
                 ></div>
                 <div class="relative z-10 text-center">
                   <div
-                    class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl bounce-soft"
+                    class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 bounce-soft overflow-hidden"
                     style="background: var(--sand)"
                   >
-                    🌿
+                    <img src="./public/logo.png" alt="Logo" class="w-full h-full object-cover">
                   </div>
                   <div
                     class="font-montserrat font-black text-2xl mb-1"
@@ -523,33 +524,33 @@
                       class="rounded-xl p-2"
                       style="background: var(--cream)"
                     >
-                      <div class="text-xl">🥜</div>
+                      <div class="text-xl"></div>
                       <div
                         class="text-xs font-semibold"
                         style="color: var(--brown-mid)"
                       >
-                        Kacang
+                        Keripik Bawang
                       </div>
                     </div>
                     <div class="rounded-xl p-2" style="background: var(--sand)">
-                      <div class="text-xl">🍯</div>
+                      <div class="text-xl"></div>
                       <div
                         class="text-xs font-semibold"
                         style="color: var(--brown-mid)"
                       >
-                        Granola
+                        Stik Keju
                       </div>
                     </div>
                     <div
                       class="rounded-xl p-2"
                       style="background: var(--cream-dark)"
                     >
-                      <div class="text-xl">🍓</div>
+                      <div class="text-xl"></div>
                       <div
                         class="text-xs font-semibold"
                         style="color: var(--brown-mid)"
                       >
-                        Dried Fruit
+                        Stik Bawang
                       </div>
                     </div>
                   </div>
@@ -559,13 +560,13 @@
                 class="absolute -top-4 -left-4 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-lg pulse-badge"
                 style="background: var(--amber)"
               >
-                🔥 Terlaris!
+                Terlaris!
               </div>
               <div
                 class="absolute -bottom-4 -right-4 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-lg"
                 style="background: var(--brown-dark)"
               >
-                ✅ Halal
+                Halal ✅
               </div>
             </div>
           </div>
@@ -674,7 +675,7 @@
             class="filter-btn px-5 py-2 rounded-full text-sm font-semibold text-white shadow transition-all duration-200"
             style="background: var(--brown-dark)"
           >
-            🍀 Semua
+            Semua
           </button>
           <button
             onclick="filterProducts('kacang')"
@@ -682,7 +683,7 @@
             class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white border transition-all duration-200"
             style="color: var(--brown-mid); border-color: var(--cream-dark)"
           >
-            🥜 Kacang
+            Keripik Bawang
           </button>
           <button
             onclick="filterProducts('granola')"
@@ -690,7 +691,7 @@
             class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white border transition-all duration-200"
             style="color: var(--brown-mid); border-color: var(--cream-dark)"
           >
-            🍯 Granola
+            Stik Keju
           </button>
           <button
             onclick="filterProducts('buah')"
@@ -698,7 +699,7 @@
             class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white border transition-all duration-200"
             style="color: var(--brown-mid); border-color: var(--cream-dark)"
           >
-            🍓 Buah Kering
+            Stik Bawang
           </button>
         </div>
 
@@ -946,7 +947,7 @@
         </div>
         <div class="text-center mt-10">
           <a
-            href="https://wa.me/628123456789?text=Halo%20Itha%20Snack%2C%20saya%20mau%20pesan!"
+            href="https://wa.me/6282123699200?text=Halo%20Itha%20Snack%2C%20saya%20mau%20pesan%20!"
             target="_blank"
             class="inline-flex items-center gap-3 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 hover:opacity-90"
             style="background: #25d366"
@@ -1153,11 +1154,10 @@
               class="text-sm leading-relaxed"
               style="color: var(--brown-light)"
             >
-              "Granola madu nya enak banget! Udah jadi sarapan rutin saya.
-              Anak-anak juga suka!"
+              "Keripik bawangnya enak banget, kriuknya pas dan gak bikin eneg. Pasti beli lagi!"
             </p>
             <div class="text-xs mt-3" style="color: var(--cream-dark)">
-              2 minggu lalu · Granola Madu
+              2 minggu lalu · Keripik Bawang
             </div>
           </div>
           <div
@@ -1182,11 +1182,10 @@
               class="text-sm leading-relaxed"
               style="color: var(--brown-light)"
             >
-              "Kacang medenya premium, gurih pas. Packaging cantik bisa buat
-              hadiah. Recommended!"
+              "Stik keju nya juara! Kejunya berasa banget, gak pelit. Cocok buat ngemil sambil nonton."
             </p>
             <div class="text-xs mt-3" style="color: var(--cream-dark)">
-              1 bulan lalu · Kacang Mede Panggang
+              1 bulan lalu · Stik Keju
             </div>
           </div>
           <div
@@ -1211,11 +1210,10 @@
               class="text-sm leading-relaxed"
               style="color: var(--brown-light)"
             >
-              "Pas lagi diet nemu itha snack. Mix almond bikin kenyang tapi
-              tetap sehat. Harganya wajar!"
+              "Bawangnya wangi dan rasanya pas, gak terlalu asin. Stik bawangnya juga enak, cocok buat teman minum teh."
             </p>
             <div class="text-xs mt-3" style="color: var(--cream-dark)">
-              3 minggu lalu · Mix Kacang Almond
+              3 minggu lalu · Stik Bawang
             </div>
           </div>
         </div>
@@ -1386,7 +1384,7 @@
           Setelah bayar, kirim bukti ke WA kami ya! 💛
         </div>
         <a
-          href="https://wa.me/628123456789"
+          href="https://wa.me/6282123699200"
           target="_blank"
           class="inline-block text-white font-bold px-6 py-2.5 rounded-xl text-sm hover:opacity-90 transition-opacity"
           style="background: #25d366"
@@ -1423,7 +1421,7 @@
                   href="index.html"
                   class="hover:opacity-70 transition-opacity flex items-center gap-2"
                   style="color: #f5ede3"
-                  ><span>→</span> Home</a
+                  > Home</a
                 >
               </li>
               <li>
@@ -1431,7 +1429,7 @@
                   href="about.html"
                   class="hover:opacity-70 transition-opacity flex items-center gap-2"
                   style="color: #f5ede3"
-                  ><span>→</span> About Us</a
+                  >About Us</a
                 >
               </li>
               <li>
@@ -1439,7 +1437,7 @@
                   href="shop.html"
                   class="hover:opacity-70 transition-opacity flex items-center gap-2"
                   style="color: #f5ede3"
-                  ><span>→</span> Shop</a
+                  >Shop</a
                 >
               </li>
               <li>
@@ -1447,7 +1445,7 @@
                   href="contact.html"
                   class="hover:opacity-70 transition-opacity flex items-center gap-2"
                   style="color: #f5ede3"
-                  ><span>→</span> Contact</a
+                  >Contact</a
                 >
               </li>
             </ul>
@@ -1461,7 +1459,7 @@
               Dapatkan penawaran khusus untuk pemesanan pertama via WhatsApp.
             </p>
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6282123699200"
               target="_blank"
               class="inline-flex items-center justify-center px-8 py-3 font-bold rounded-full shadow-xl transition-opacity hover:opacity-90 focus:outline-none"
               style="background-color: #f5ede3; color: #47382e"
@@ -1479,7 +1477,7 @@
             color: #f5ede3;
           "
         >
-          &copy; 2026 Itha Snack. Dibuat dengan ❤️ untuk pecinta camilan
+          &copy; 2026 Itha Snack. Dibuat dengan ❤️ untuk pecinta snack
           Indonesia.
         </div>
       </div>
@@ -1575,7 +1573,7 @@
         document.getElementById("qris-total").textContent =
           "Rp " + total.toLocaleString("id-ID");
         document.getElementById("wa-order-btn").href =
-          "https://wa.me/628123456789?text=" + waText;
+          "https://wa.me/6282123699200?text=" + waText;
       }
 
       function removeFromCart(name) {
