@@ -1,10 +1,9 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
-import tailwindcss from '@theme/v4' 
-export default defineConfig({
+import tailwindcss from '@tailwindcss/vite' // Ganti baris ini
 
+export default defineConfig({
   base: '/Itha-Snack/', 
-  
   build: {
     rollupOptions: {
       input: {
