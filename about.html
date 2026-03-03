@@ -6,20 +6,21 @@
   <link rel="icon" type="image/svg+xml" href="/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <title>About Itha Snack</title>
-
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap");
 
     :root {
-      --black: #333;
-      --white: #fff;
-      --border: 0.1rem solid var(--black);
-      --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      --clr-black: #333;
+      --clr-white: #fff;
+      --custom-border: 0.1rem solid var(--clr-black);
+      --custom-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     }
 
     * {
-      font-family: "Rubik", sans-serif;
+      font-family: "Montserrat", sans-serif;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -29,8 +30,28 @@
       transition: all 0.2s linear;
     }
 
-    /* AUTHORS */
-    .authors .box-container {
+    /* Reset untuk避免 gap */
+    #app {
+      margin: 0;
+      padding: 0;
+      display: contents;
+    }
+
+    header.fixed {
+      top: 0;
+      left: 0;
+      margin-top: 0;
+    }
+
+    /* Hapus semua gap */
+    html, body {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    /* AUTHORS - using custom names to avoid Tailwind conflicts */
+    .author-card-grid {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
@@ -40,54 +61,54 @@
       justify-content: center;
     }
 
-    .authors .box-container .box {
+    .author-card {
       position: relative;
       text-align: center;
-      border: var(--border);
-      box-shadow: var(--box-shadow);
+      border: var(--custom-border);
+      box-shadow: var(--custom-shadow);
       overflow: hidden;
       border-radius: 0.5rem;
     }
 
-    .authors .box-container .box img {
+    .author-card img {
       width: 100%;
       height: 26rem;
       object-fit: cover;
     }
 
-    .authors .box-container .box .share {
+    .author-social {
       position: absolute;
       top: 0;
       left: -10rem;
     }
 
-    .authors .box-container .box:hover .share {
+    .author-card:hover .author-social {
       left: 1rem;
     }
 
-    .authors .box-container .box .share a {
+    .author-social a {
       height: 3.2rem;
       width: 3.2rem;
       line-height: 3.2rem;
       font-size: 1.5rem;
-      background-color: var(--white);
-      border: var(--border);
+      background-color: var(--clr-white);
+      border: var(--custom-border);
       display: block;
       margin-top: 1rem;
       border-radius: 1rem;
-      color: var(--black);
+      color: var(--clr-black);
     }
 
-    .authors .box-container .box a:hover {
-      background-color: var(--black);
-      color: var(--white);
+    .author-social a:hover {
+      background-color: var(--clr-black);
+      color: var(--clr-white);
     }
 
-    .authors .box-container .box h3 {
+    .author-card h3 {
       font-size: 2.5rem;
-      color: var(--black);
+      color: var(--clr-black);
       padding: 1.5rem;
-      background-color: var(--white);
+      background-color: var(--clr-white);
     }
   </style>
 
@@ -121,15 +142,14 @@
   <!-- ABOUT -->
 
   <!-- CARD -->
-  <section class="authors">
-    <h1 class="title" align="center">About US</h1>
-    <br /><br />
+  <section class="py-8">
+    <h1 class="text-4xl font-bold text-center mb-8" style="color: #333;">About US</h1>
 
     <!-- First card -->
-    <div class="box-container">
-      <div class="box">
+    <div class="author-card-grid">
+      <div class="author-card">
         <img src="/public/jk3.jpeg" alt="" />
-        <div class="share">
+        <div class="author-social">
           <a href="https://www.facebook.com/jk3jk1" class="fab fa-facebook-f"></a>
           <a href="https://x.com/rendrabarlianto" class="fa-brands fa-x-twitter"></a>
           <a href="https://www.instagram.com/jk3jk1/" class="fab fa-instagram"></a>
@@ -139,9 +159,9 @@
       </div>
 
       <!-- Second card -->
-      <div class="box">
+      <div class="author-card">
         <img src="/public/jk3.jpeg" alt="" />
-        <div class="share">
+        <div class="author-social">
           <a href="#" class="fab fa-facebook-f"></a>
           <a href="#" class="fa-brands fa-x-twitter"></a>
           <a href="#" class="fab fa-instagram"></a>
@@ -151,9 +171,9 @@
       </div>
 
       <!-- Third Card -->
-      <div class="box">
+      <div class="author-card">
         <img src="/public/jk3.jpeg" alt="" />
-        <div class="share">
+        <div class="author-social">
           <a href="#" class="fab fa-facebook-f"></a>
           <a href="#" class="fa-brands fa-x-twitter"></a>
           <a href="#" class="fab fa-instagram"></a>
@@ -163,9 +183,9 @@
       </div>
 
       <!-- Four card -->
-      <div class="box">
+      <div class="author-card">
         <img src="/public/jk3.jpeg" alt="" />
-        <div class="share">
+        <div class="author-social">
           <a href="#" class="fab fa-facebook-f"></a>
           <a href="#" class="fa-brands fa-x-twitter"></a>
           <a href="#" class="fab fa-instagram"></a>
@@ -178,3 +198,5 @@
 </body>
 
 </html>
+
+
