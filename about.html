@@ -4,8 +4,90 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Itha Snack</title>
-  
+    <title>About Itha Snack</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap");
+
+      :root {
+        --black: #333;
+        --white: #fff;
+        --border: 0.1rem solid var(--black);
+        --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        font-family: "Rubik", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        transition: all 0.2s linear;
+      }
+
+      /* AUTHORS */
+      .authors .box-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        gap: 1.5rem;
+        justify-content: center;
+      }
+
+      .authors .box-container .box {
+        position: relative;
+        text-align: center;
+        border: var(--border);
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+        border-radius: 0.5rem;
+      }
+
+      .authors .box-container .box img {
+        width: 100%;
+        height: 26rem;
+        object-fit: cover;
+      }
+
+      .authors .box-container .box .share {
+        position: absolute;
+        top: 0;
+        left: -10rem;
+      }
+
+      .authors .box-container .box:hover .share {
+        left: 1rem;
+      }
+
+      .authors .box-container .box .share a {
+        height: 3.2rem;
+        width: 3.2rem;
+        line-height: 3.2rem;
+        font-size: 1.5rem;
+        background-color: var(--white);
+        border: var(--border);
+        display: block;
+        margin-top: 1rem;
+        border-radius: 1rem;
+        color: var(--black);
+      }
+
+      .authors .box-container .box a:hover {
+        background-color: var(--black);
+        color: var(--white);
+      }
+
+      .authors .box-container .box h3 {
+        font-size: 2.5rem;
+        color: var(--black);
+        padding: 1.5rem;
+        background-color: var(--white);
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
@@ -13,15 +95,81 @@
     <header class="bg-emerald-400 h-18">
       <div class="container mx-auto px-4 flex justify-start">
         <div class="mt-5 w-15">
-          <img src="./public/logo.png" alt="">
+          <img src="./public/logo.png" alt="" />
         </div>
         <ul class="gap-3 flex">
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="index.html">Home</a></li>
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="about.html">About</a></li>
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="contact.html">Contact</a></li>
-          <li class="mt-5 font-montserrat"><a class="text-lg" href="shop.html">Shop</a></li>
+          <li class="mt-5 font-montserrat">
+            <a class="text-lg" href="index.html">Home</a>
+          </li>
+          <li class="mt-5 font-montserrat">
+            <a class="text-lg" href="about.html">About</a>
+          </li>
+          <li class="mt-5 font-montserrat">
+            <a class="text-lg" href="contact.html">Contact</a>
+          </li>
+          <li class="mt-5 font-montserrat">
+            <a class="text-lg" href="shop.html">Shop</a>
+          </li>
         </ul>
       </div>
     </header>
+
+    <!-- ABOUT -->
+
+    <!-- CARD -->
+    <section class="authors">
+      <h1 class="title" align="center">About US</h1>
+      <br /><br />
+
+      <!-- First card -->
+      <div class="box-container">
+        <div class="box">
+          <img src="jk3.jpeg" alt="" />
+          <div class="share">
+            <a
+              href="https://www.facebook.com/jk3jk1"
+              class="fab fa-facebook-f"
+            ></a>
+            <a
+              href="https://x.com/rendrabarlianto"
+              class="fa-brands fa-x-twitter"
+            ></a>
+            <a
+              href="https://www.instagram.com/jk3jk1/"
+              class="fab fa-instagram"
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/dzaky-rendra-baruna-barlianto-34a518350/"
+              class="fab fa-linkedin"
+            ></a>
+          </div>
+          <h3>Dzaky</h3>
+        </div>
+
+        <!-- Second card -->
+        <div class="box">
+          <img src="jk3.jpeg" alt="" />
+          <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fa-brands fa-x-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+          </div>
+          <h3>Imup</h3>
+        </div>
+
+        <!-- Third Card -->
+        <div class="box">
+          <img src="jk3.jpeg" alt="" />
+          <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fa-brands fa-x-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+          </div>
+          <h3>Toni harley</h3>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
