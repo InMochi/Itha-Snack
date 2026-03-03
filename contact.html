@@ -1,315 +1,565 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Itha Snack | Camilan Premium Keluarga</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --background: hsl(35, 30%, 96%);
+        --foreground: hsl(25, 30%, 12%);
+        --primary: hsl(30, 80%, 50%);
+        --primary-10: hsla(30, 80%, 50%, 0.1);
+        --muted-foreground: hsl(25, 15%, 45%);
+        --border: hsl(30, 20%, 85%);
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/logo.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Itha Snack | Camilan Premium Keluarga</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root {
-      --background: hsl(35, 30%, 96%);
-      --foreground: hsl(25, 30%, 12%);
-      --primary: hsl(30, 80%, 50%);
-      --primary-10: hsla(30, 80%, 50%, 0.1);
-      --muted-foreground: hsl(25, 15%, 45%);
-      --border: hsl(30, 20%, 85%);
-    }
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-    }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--border);
+      }
+      :root {
+        --orange: #e68019;
+        --brown: #47382e;
+        --orange-light: #f5a04a;
+      }
 
-    .glass-card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
-    }
-  </style>
-</head>
+      header {
+        background: var(--brown);
+        padding: 0 2.5rem;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        box-shadow: 0 2px 24px rgba(71, 56, 46, 0.25);
+      }
 
-<body class="" style="background-color: var(--background);">
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100
-    });
-  </script>
-  <a href="https://wa.me/6282123699200"
-    class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group">
-    <i class="fa-brands fa-whatsapp text-3xl"></i>
-    <span
-      class="absolute right-20 bg-white text-gray-800 px-4 py-2 rounded-lg text-sm font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-      Tanya Itha Snack
-    </span>
-  </a>
-  <div id="app"></div>
-  <script type="module" src="/src/main.js"></script>
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+      }
 
-    <header class="bg-[#47382e] h-18 fixed z-10 w-screen">
-      <div class="container mx-auto px-4 flex justify-start">
-        <div class="mt-5 w-15">
-          <img src="./public/logo.png" alt="" />
-        </div>
-        <ul class="gap-3 flex items-center text-white text-lg font-semibold">
-          <li class="mt-5 font-montserrat">
-            <a class="text-lg" href="index.html">Home</a>
-          </li>
-          <li class="mt-5 font-montserrat">
-            <a class="text-lg" href="about.html">About</a>
-          </li>
-          <li class="mt-5 font-montserrat">
-            <a class="text-lg" href="contact.html">Contact</a>
-          </li>
-          <li class="mt-5 font-montserrat">
-            <a class="text-lg" href="shop.html">Shop</a>
-          </li>
+      .nav-logo-icon {
+        width: 38px;
+        height: 38px;
+        background: var(--orange);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        color: white;
+      }
+
+      .nav-logo-text {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        color: white;
+        letter-spacing: 0.5px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 0.25rem;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 0.45rem 1rem;
+        border-radius: 999px;
+        transition: all 0.2s;
+        letter-spacing: 0.3px;
+      }
+
+      nav ul li a:hover,
+      nav ul li a.active {
+        background: rgba(230, 128, 25, 0.2);
+        color: var(--orange-light);
+      }
+    </style>
+  </head>
+
+  <body class="" style="background-color: var(--background)">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
+    </script>
+    <a
+      href="https://wa.me/6282123699200"
+      class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group"
+    >
+      <i class="fa-brands fa-whatsapp text-3xl"></i>
+      <span
+        class="absolute right-20 bg-white text-gray-800 px-4 py-2 rounded-lg text-sm font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none"
+      >
+        Tanya Itha Snack
+      </span>
+    </a>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+
+    <header>
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon"><i class="fas fa-cookie-bite"></i></div>
+        <span class="nav-logo-text">Itha Snack</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="about.html">Tentang</a></li>
+          <li><a href="contact.html" class="active">Kontak</a></li>
+          <li><a href="shop.html">Toko</a></li>
         </ul>
-      </div>
+      </nav>
     </header>
 
-  <main class="relative overflow-hidden py-24">
+    <main class="relative overflow-hidden py-24">
+      <div
+        class="absolute -top-20 -left-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"
+        style="background-color: var(--primary)"
+      ></div>
+      <div
+        class="absolute top-1/2 -right-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000"
+        style="background-color: var(--primary)"
+      ></div>
+      <div
+        class="absolute -bottom-20 left-1/3 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-4000"
+        style="background-color: var(--primary)"
+      ></div>
 
-    <div
-      class="absolute -top-20 -left-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob" style="background-color: var(--primary);">
-    </div>
-    <div
-      class="absolute top-1/2 -right-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000" style="background-color: var(--primary);">
-    </div>
-    <div
-      class="absolute -bottom-20 left-1/3 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-4000" style="background-color: var(--primary);">
-    </div>
-
-    <div class="container mx-auto px-6 relative">
-
-      <section class="text-center mb-28">
-        <span data-aos="fade-down"
-          class="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest uppercase bg-emerald-100 rounded-full" style="color: var(--primary); background-color: var(--primary-10);">
-          Authentic Taste
-        </span>
-        <h1 data-aos="zoom-in" class="text-5xl md:text-6xl font-bold mb-6 leading-tight" style="color: var(--foreground);">
-          Cerita Di Balik <span style="color: var(--primary);">Itha Snack</span>
-        </h1>
-        <p data-aos="fade-up" data-aos-delay="200" class="max-w-3xl mx-auto text-xl leading-relaxed" style="color: var(--muted-foreground);">
-          Lebih dari sekadar camilan. Kami percaya bahwa kebahagiaan besar bermula dari kunyahan kecil yang renyah dan
-          penuh rasa.
-          Hadir untuk menemani setiap cerita hangat Anda.
-        </p>
-      </section>
-
-      <section class="grid md:grid-cols-2 gap-10 mb-32">
-        <div data-aos="fade-right" data-aos-delay="100"
-          class="glass-card p-12 rounded-4xl shadow-xl hover:-translate-y-3 transition-all duration-500 group">
-          <div
-            class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-transform" style="background-color: var(--primary);">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-          </div>
-          <h2 class="text-3xl font-bold mb-5" style="color: var(--foreground);">Visi Kami</h2>
-          <p class="text-lg leading-relaxed" style="color: var(--muted-foreground);">
-            Menjadi pelopor camilan lokal berkualitas tinggi yang menyatukan tradisi rasa dengan standar modern,
-            menjadikan produk kebanggaan nusantara di setiap meja keluarga.
+      <div class="container mx-auto px-6 relative">
+        <section class="text-center mb-28">
+          <span
+            data-aos="fade-down"
+            class="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest uppercase bg-emerald-100 rounded-full"
+            style="color: var(--primary); background-color: var(--primary-10)"
+          >
+            Authentic Taste
+          </span>
+          <h1
+            data-aos="zoom-in"
+            class="text-5xl md:text-6xl font-bold mb-6 leading-tight"
+            style="color: var(--foreground)"
+          >
+            Cerita Di Balik
+            <span style="color: var(--primary)">Itha Snack</span>
+          </h1>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            class="max-w-3xl mx-auto text-xl leading-relaxed"
+            style="color: var(--muted-foreground)"
+          >
+            Lebih dari sekadar camilan. Kami percaya bahwa kebahagiaan besar
+            bermula dari kunyahan kecil yang renyah dan penuh rasa. Hadir untuk
+            menemani setiap cerita hangat Anda.
           </p>
-        </div>
+        </section>
 
-        <div data-aos="fade-left" data-aos-delay="300"
-          class="glass-card p-12 rounded-4xl shadow-xl hover:-translate-y-3 transition-all duration-500 group">
+        <section class="grid md:grid-cols-2 gap-10 mb-32">
           <div
-            class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center text-white shadow-lg group-hover:-rotate-12 transition-transform" style="background-color: var(--primary);">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+            data-aos="fade-right"
+            data-aos-delay="100"
+            class="glass-card p-12 rounded-4xl shadow-xl hover:-translate-y-3 transition-all duration-500 group"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center text-white shadow-lg group-hover:rotate-12 transition-transform"
+              style="background-color: var(--primary)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                />
+              </svg>
+            </div>
+            <h2
+              class="text-3xl font-bold mb-5"
+              style="color: var(--foreground)"
+            >
+              Visi Kami
+            </h2>
+            <p
+              class="text-lg leading-relaxed"
+              style="color: var(--muted-foreground)"
+            >
+              Menjadi pelopor camilan lokal berkualitas tinggi yang menyatukan
+              tradisi rasa dengan standar modern, menjadikan produk kebanggaan
+              nusantara di setiap meja keluarga.
+            </p>
           </div>
-          <h2 class="text-3xl font-bold mb-5" style="color: var(--foreground);">Misi Kami</h2>
-          <ul class="text-lg space-y-4" style="color: var(--muted-foreground);">
-            <li class="flex items-center gap-3">
-              <span
-                class="flex--0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: var(--primary-10); color: var(--primary);">1</span>
-              Hanya menggunakan bahan baku pilihan & segar.
-            </li>
-            <li class="flex items-center gap-3">
-              <span
-                class="flex--0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: var(--primary-10); color: var(--primary);">2</span>
-              Terus berinovasi menciptakan varian rasa yang unik.
-            </li>
-            <li class="flex items-center gap-3">
-              <span
-                class="flex--0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: var(--primary-10); color: var(--primary);">3</span>
-              Memberdayakan UMKM dan petani lokal Indonesia.
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <section class="grid md:grid-cols-5 gap-10 items-stretch mb-24">
+          <div
+            data-aos="fade-left"
+            data-aos-delay="300"
+            class="glass-card p-12 rounded-4xl shadow-xl hover:-translate-y-3 transition-all duration-500 group"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center text-white shadow-lg group-hover:-rotate-12 transition-transform"
+              style="background-color: var(--primary)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <h2
+              class="text-3xl font-bold mb-5"
+              style="color: var(--foreground)"
+            >
+              Misi Kami
+            </h2>
+            <ul
+              class="text-lg space-y-4"
+              style="color: var(--muted-foreground)"
+            >
+              <li class="flex items-center gap-3">
+                <span
+                  class="flex--0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold"
+                  style="
+                    background-color: var(--primary-10);
+                    color: var(--primary);
+                  "
+                  >1</span
+                >
+                Hanya menggunakan bahan baku pilihan & segar.
+              </li>
+              <li class="flex items-center gap-3">
+                <span
+                  class="flex--0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold"
+                  style="
+                    background-color: var(--primary-10);
+                    color: var(--primary);
+                  "
+                  >2</span
+                >
+                Terus berinovasi menciptakan varian rasa yang unik.
+              </li>
+              <li class="flex items-center gap-3">
+                <span
+                  class="flex--0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold"
+                  style="
+                    background-color: var(--primary-10);
+                    color: var(--primary);
+                  "
+                  >3</span
+                >
+                Memberdayakan UMKM dan petani lokal Indonesia.
+              </li>
+            </ul>
+          </div>
+        </section>
 
-        <div data-aos="fade-up" class="md:col-span-2 glass-card p-10 rounded-4xl shadow-xl">
-          <h2 class="text-3xl font-bold mb-8" style="color: var(--foreground);">Hubungi Kami</h2>
+        <section class="grid md:grid-cols-5 gap-10 items-stretch mb-24">
+          <div
+            data-aos="fade-up"
+            class="md:col-span-2 glass-card p-10 rounded-4xl shadow-xl"
+          >
+            <h2
+              class="text-3xl font-bold mb-8"
+              style="color: var(--foreground)"
+            >
+              Hubungi Kami
+            </h2>
 
-          <div class="space-y-8">
-            <div class="flex items-start gap-5">
-              <div class="text-2xl">📍</div>
-              <div>
-                <p class="font-bold" style="color: var(--foreground);">Alamat</p>
-                <p class="leading-snug" style="color: var(--muted-foreground);">Jl. Jayagas RT.02/RW.001 NO 32A, Pondok Kelapa, Duren Sawit, Jakarta Timur</p>
+            <div class="space-y-8">
+              <div class="flex items-start gap-5">
+                <div class="text-2xl">📍</div>
+                <div>
+                  <p class="font-bold" style="color: var(--foreground)">
+                    Alamat
+                  </p>
+                  <p
+                    class="leading-snug"
+                    style="color: var(--muted-foreground)"
+                  >
+                    Jl. Jayagas RT.02/RW.001 NO 32A, Pondok Kelapa, Duren Sawit,
+                    Jakarta Timur
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-5">
+                <div class="text-2xl">📧</div>
+                <div>
+                  <p class="font-bold" style="color: var(--foreground)">
+                    Email
+                  </p>
+                  <p style="color: var(--muted-foreground)">
+                    hello@ithasnack.com
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-5">
+                <div class="text-2xl">📞</div>
+                <div>
+                  <p class="font-bold" style="color: var(--foreground)">
+                    WhatsApp
+                  </p>
+                  <a
+                    href="https://wa.me/6282123699200"
+                    target="_blank"
+                    class="font-bold transition"
+                    style="color: var(--primary)"
+                  >
+                    +62 821-2369-9200
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="flex items-start gap-5">
-              <div class="text-2xl">📧</div>
-              <div>
-                <p class="font-bold" style="color: var(--foreground);">Email</p>
-                <p style="color: var(--muted-foreground);">hello@ithasnack.com</p>
+
+            <div class="mt-8 pt-6 border-t" style="border-color: var(--border)">
+              <div class="flex items-start gap-5">
+                <div class="text-2xl">⏰</div>
+                <div>
+                  <p class="font-bold" style="color: var(--foreground)">
+                    Jam Operasional
+                  </p>
+                  <p class="text-sm" style="color: var(--muted-foreground)">
+                    Senin - Sabtu: 09:00 - 18:00
+                  </p>
+                  <p
+                    class="text-xs font-semibold"
+                    style="color: var(--primary)"
+                  >
+                    Minggu: Tutup (Hanya Online)
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="flex items-start gap-5">
-              <div class="text-2xl">📞</div>
-              <div>
-                <p class="font-bold" style="color: var(--foreground);">WhatsApp</p>
-                <a href="https://wa.me/6282123699200" target="_blank"
-                  class="font-bold transition" style="color: var(--primary);">
-                  +62 821-2369-9200
+
+            <div class="mt-12">
+              <p
+                class="font-bold mb-4 uppercase text-xs tracking-widest"
+                style="color: var(--foreground)"
+              >
+                Temukan kami di
+              </p>
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="w-12 h-12 flex items-center justify-center bg-gradient-linear from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg"
+                >
+                  <i class="fa-brands fa-instagram text-2xl"></i>
+                </a>
+
+                <a
+                  href="#"
+                  class="w-12 h-12 flex items-center justify-center text-white rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg"
+                  style="background-color: #1877f2"
+                >
+                  <i class="fa-brands fa-facebook-f text-2xl"></i>
+                </a>
+
+                <a
+                  href="#"
+                  class="w-12 h-12 flex items-center justify-center text-white rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg"
+                  style="background-color: var(--foreground)"
+                >
+                  <i class="fa-brands fa-tiktok text-2xl"></i>
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="mt-8 pt-6 border-t" style="border-color: var(--border);">
-            <div class="flex items-start gap-5">
-              <div class="text-2xl">⏰</div>
-              <div>
-                <p class="font-bold" style="color: var(--foreground);">Jam Operasional</p>
-                <p class="text-sm" style="color: var(--muted-foreground);">Senin - Sabtu: 09:00 - 18:00</p>
-                <p class="text-xs font-semibold" style="color: var(--primary);">Minggu: Tutup (Hanya Online)</p>
-              </div>
-            </div>
+          <div
+            data-aos="zoom-in"
+            class="md:col-span-3 rounded-4xl overflow-hidden shadow-2xl relative min-h-100"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31729.39784931898!2d106.91255380565373!3d-6.240688049837538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698cc24a4c50e5%3A0x1b5a79279bc405a7!2sPd.%20Klp.%2C%20Kec.%20Duren%20Sawit%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1772463240796!5m2!1sid!2sid"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="absolute inset-0 w-full h-full grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            >
+            </iframe>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer
+      class="text-white pt-20 pb-10"
+      style="background-color: var(--primary)"
+    >
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-16 mb-16">
+          <div data-aos="fade-up">
+            <h3 class="text-3xl font-extrabold mb-6 tracking-tight">
+              Itha Snack.
+            </h3>
+            <p class="leading-relaxed mb-6" style="color: var(--background)">
+              Menghadirkan senyuman lewat setiap renyah camilan yang kami buat
+              dengan penuh cinta.
+            </p>
+            <div
+              class="h-1.5 w-12 rounded-full"
+              style="background-color: var(--background)"
+            ></div>
           </div>
 
+          <div data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-lg font-bold mb-6 uppercase tracking-widest">
+              Navigasi
+            </h3>
+            <ul class="space-y-4">
+              <li>
+                <a
+                  href="index.html"
+                  class="hover:opacity-70 transition-colors flex items-center gap-2"
+                  style="color: var(--background)"
+                  ><span>→</span> Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:opacity-70 transition-colors flex items-center gap-2"
+                  style="color: var(--background)"
+                  ><span>→</span> About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="shop.html"
+                  class="hover:opacity-70 transition-colors flex items-center gap-2"
+                  style="color: var(--background)"
+                  ><span>→</span> Shop</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:opacity-70 transition-colors flex items-center gap-2"
+                  style="color: var(--background)"
+                  ><span>→</span> Contact</a
+                >
+              </li>
+            </ul>
+          </div>
 
-          <div class="mt-12">
-            <p class="font-bold mb-4 uppercase text-xs tracking-widest" style="color: var(--foreground);">Temukan kami di</p>
-            <div class="flex gap-4">
-              <a href="#"
-                class="w-12 h-12 flex items-center justify-center bg-gradient-linear from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg">
-                <i class="fa-brands fa-instagram text-2xl"></i>
-              </a>
-
-              <a href="#"
-                class="w-12 h-12 flex items-center justify-center text-white rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg" style="background-color: #1877F2;">
-                <i class="fa-brands fa-facebook-f text-2xl"></i>
-              </a>
-
-              <a href="#"
-                class="w-12 h-12 flex items-center justify-center text-white rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg" style="background-color: var(--foreground);">
-                <i class="fa-brands fa-tiktok text-2xl"></i>
-              </a>
-            </div>
+          <div data-aos="fade-up" data-aos-delay="400">
+            <h3 class="text-lg font-bold mb-6 uppercase tracking-widest">
+              Mulai Pesan?
+            </h3>
+            <p class="mb-8" style="color: var(--background)">
+              Dapatkan penawaran khusus untuk pemesanan pertama via WhatsApp.
+            </p>
+            <a
+              href="https://wa.me/6281234567890"
+              target="_blank"
+              class="group relative inline-flex items-center justify-center px-8 py-3 font-bold transition-all duration-200 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 shadow-xl"
+              style="background-color: var(--background); color: var(--primary)"
+            >
+              Order Sekarang
+            </a>
           </div>
         </div>
 
-        <div data-aos="zoom-in" class="md:col-span-3 rounded-4xl overflow-hidden shadow-2xl relative min-h-100">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31729.39784931898!2d106.91255380565373!3d-6.240688049837538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698cc24a4c50e5%3A0x1b5a79279bc405a7!2sPd.%20Klp.%2C%20Kec.%20Duren%20Sawit%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1772463240796!5m2!1sid!2sid"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            class="absolute inset-0 w-full h-full grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
-            style="border:0;" allowfullscreen="" loading="lazy">
-          </iframe>
+        <div
+          class="pt-8 border-t text-center text-sm font-medium"
+          style="
+            border-color: var(--primary);
+            opacity: 0.8;
+            color: var(--background);
+          "
+        >
+          &copy; 2026 Itha Snack. Dibuat dengan ❤️ untuk pecinta camilan
+          Indonesia.
         </div>
-
-      </section>
-
-    </div>
-  </main>
-
-
-
-  <footer class="text-white pt-20 pb-10" style="background-color: var(--primary);">
-    <div class="container mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-16 mb-16">
-
-        <div data-aos="fade-up">
-          <h3 class="text-3xl font-extrabold mb-6 tracking-tight">Itha Snack.</h3>
-          <p class="leading-relaxed mb-6" style="color: var(--background);">
-            Menghadirkan senyuman lewat setiap renyah camilan yang kami buat dengan penuh cinta.
-          </p>
-          <div class="h-1.5 w-12 rounded-full" style="background-color: var(--background);"></div>
-        </div>
-
-        <div data-aos="fade-up" data-aos-delay="200">
-          <h3 class="text-lg font-bold mb-6 uppercase tracking-widest">Navigasi</h3>
-          <ul class="space-y-4">
-            <li><a href="index.html"
-                class="hover:opacity-70 transition-colors flex items-center gap-2" style="color: var(--background);"><span>→</span> Home</a></li>
-            <li><a href="about.html"
-                class="hover:opacity-70 transition-colors flex items-center gap-2" style="color: var(--background);"><span>→</span> About Us</a></li>
-            <li><a href="shop.html"
-                class="hover:opacity-70 transition-colors flex items-center gap-2" style="color: var(--background);"><span>→</span> Shop</a></li>
-            <li><a href="contact.html"
-                class="hover:opacity-70 transition-colors flex items-center gap-2" style="color: var(--background);"><span>→</span> Contact</a></li>
-          </ul>
-        </div>
-
-        <div data-aos="fade-up" data-aos-delay="400">
-          <h3 class="text-lg font-bold mb-6 uppercase tracking-widest">Mulai Pesan?</h3>
-          <p class="mb-8" style="color: var(--background);">Dapatkan penawaran khusus untuk pemesanan pertama via WhatsApp.</p>
-          <a href="https://wa.me/6281234567890" target="_blank"
-            class="group relative inline-flex items-center justify-center px-8 py-3 font-bold transition-all duration-200 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 shadow-xl" style="background-color: var(--background); color: var(--primary);">
-            Order Sekarang
-          </a>
-        </div>
-
       </div>
+    </footer>
 
-      <div class="pt-8 border-t text-center text-sm font-medium" style="border-color: var(--primary); opacity: 0.8; color: var(--background);">
-        &copy; 2026 Itha Snack. Dibuat dengan ❤️ untuk pecinta camilan Indonesia.
-      </div>
-    </div>
-  </footer>
+    <style>
+      @keyframes blob {
+        0% {
+          transform: translate(0px, 0px) scale(1);
+        }
 
-  <style>
-    @keyframes blob {
-      0% {
-        transform: translate(0px, 0px) scale(1);
+        33% {
+          transform: translate(30px, -50px) scale(1.1);
+        }
+
+        66% {
+          transform: translate(-20px, 20px) scale(0.9);
+        }
+
+        100% {
+          transform: translate(0px, 0px) scale(1);
+        }
       }
 
-      33% {
-        transform: translate(30px, -50px) scale(1.1);
+      .animate-blob {
+        animation: blob 7s infinite;
       }
 
-      66% {
-        transform: translate(-20px, 20px) scale(0.9);
+      .animation-delay-2000 {
+        animation-delay: 2s;
       }
 
-      100% {
-        transform: translate(0px, 0px) scale(1);
+      .animation-delay-4000 {
+        animation-delay: 4s;
       }
-    }
-
-    .animate-blob {
-      animation: blob 7s infinite;
-    }
-
-    .animation-delay-2000 {
-      animation-delay: 2s;
-    }
-
-    .animation-delay-4000 {
-      animation-delay: 4s;
-    }
-  </style>
-</body>
-
+    </style>
+  </body>
 </html>
