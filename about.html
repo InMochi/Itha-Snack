@@ -1,202 +1,902 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Tentang Kami — Itha Snack</title>
+    <style>
+      :root {
+        --orange: #e68019;
+        --brown: #47382e;
+        --brown-dark: #2e2319;
+        --brown-light: #6b5447;
+        --cream: #fdf6ee;
+        --cream-dark: #f5e8d4;
+        --orange-light: #f5a04a;
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--brown);
+        overflow-x: hidden;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/logo.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <title>About Itha Snack</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap");
+      header {
+        background: var(--brown);
+        padding: 0 2.5rem;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 24px rgba(71, 56, 46, 0.25);
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+      }
+      .nav-logo-icon {
+        width: 38px;
+        height: 38px;
+        background: var(--orange);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        color: white;
+      }
+      .nav-logo-text {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        color: white;
+        letter-spacing: 0.5px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 0.25rem;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 0.45rem 1rem;
+        border-radius: 999px;
+        transition: all 0.2s;
+      }
+      nav ul li a:hover,
+      nav ul li a.active {
+        background: rgba(230, 128, 25, 0.2);
+        color: var(--orange-light);
+      }
 
-    :root {
-      --clr-black: #333;
-      --clr-white: #fff;
-      --custom-border: 0.1rem solid var(--clr-black);
-      --custom-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    }
+      .hero {
+        background: var(--brown);
+        position: relative;
+        overflow: hidden;
+        padding: 6rem 2.5rem 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 420px;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -120px;
+        right: -120px;
+        width: 480px;
+        height: 480px;
+        border-radius: 50%;
+        border: 2px solid rgba(230, 128, 25, 0.18);
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        border: 2px solid rgba(230, 128, 25, 0.12);
+      }
+      .hero-decor {
+        position: absolute;
+        bottom: -80px;
+        left: -80px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(230, 128, 25, 0.08) 0%,
+          transparent 70%
+        );
+      }
+      .hero-content {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: rgba(230, 128, 25, 0.15);
+        border: 1px solid rgba(230, 128, 25, 0.3);
+        color: var(--orange-light);
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding: 0.4rem 1.1rem;
+        border-radius: 999px;
+        margin-bottom: 1.5rem;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--orange);
+      }
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.8rem, 6vw, 4.5rem);
+        font-weight: 900;
+        color: white;
+        line-height: 1.1;
+        margin-bottom: 1.25rem;
+      }
+      .hero h1 span {
+        color: var(--orange);
+      }
+      .hero p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        font-weight: 300;
+        max-width: 520px;
+        margin: 0 auto;
+      }
 
-    * {
-      font-family: "Montserrat", sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      outline: none;
-      border: none;
-      text-decoration: none;
-      transition: all 0.2s linear;
-    }
+      .story {
+        padding: 6rem 2.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+      .story-visual {
+        position: relative;
+      }
+      .story-img-frame {
+        width: 100%;
+        aspect-ratio: 4/5;
+        border-radius: 2rem 2rem 8rem 2rem;
+        overflow: hidden;
+      }
+      .story-img-placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--brown-dark) 0%,
+          var(--brown-light) 60%,
+          var(--orange) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+        color: rgba(255, 255, 255, 0.12);
+      }
+      .story-badge {
+        position: absolute;
+        bottom: -1.5rem;
+        right: -1.5rem;
+        width: 110px;
+        height: 110px;
+        background: var(--orange);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 32px rgba(230, 128, 25, 0.4);
+        border: 4px solid var(--cream);
+      }
+      .story-badge-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 900;
+        color: white;
+        line-height: 1;
+      }
+      .story-badge-text {
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.85);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.3;
+      }
+      .story-dots {
+        position: absolute;
+        top: 2rem;
+        left: -2rem;
+        width: 80px;
+        height: 80px;
+        background-image: radial-gradient(
+          circle,
+          var(--orange) 1.5px,
+          transparent 1.5px
+        );
+        background-size: 10px 10px;
+        opacity: 0.35;
+      }
+      .section-label {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 1rem;
+      }
+      .section-label::after {
+        content: "";
+        flex: 1;
+        max-width: 48px;
+        height: 2px;
+        background: var(--orange);
+        border-radius: 99px;
+      }
+      .story-text h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--brown);
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+      }
+      .story-text p {
+        color: var(--brown-light);
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        font-weight: 300;
+      }
+      .story-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin-top: 2.5rem;
+      }
+      .stat-item {
+        background: var(--cream-dark);
+        border-radius: 1rem;
+        padding: 1.25rem 1rem;
+        text-align: center;
+        border: 1px solid rgba(71, 56, 46, 0.08);
+      }
+      .stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--orange);
+        line-height: 1;
+        margin-bottom: 0.3rem;
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: var(--brown-light);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
 
-    /* Reset untuk避免 gap */
-    #app {
-      margin: 0;
-      padding: 0;
-      display: contents;
-    }
+      .team-section {
+        background: var(--brown);
+        padding: 6rem 2.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .team-section::before {
+        content: "";
+        position: absolute;
+        top: -200px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 800px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(
+          ellipse,
+          rgba(230, 128, 25, 0.06) 0%,
+          transparent 70%
+        );
+      }
+      .team-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .team-header {
+        text-align: center;
+        margin-bottom: 3.5rem;
+      }
+      .team-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 1rem;
+      }
+      .team-header h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.8rem;
+        font-weight: 900;
+        color: white;
+        line-height: 1.15;
+      }
+      .team-header h2 em {
+        font-style: italic;
+        color: var(--orange);
+      }
+      .team-header p {
+        color: rgba(255, 255, 255, 0.5);
+        max-width: 480px;
+        margin: 1rem auto 0;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        font-weight: 300;
+      }
 
-    header.fixed {
-      top: 0;
-      left: 0;
-      margin-top: 0;
-    }
+      .team-row-1 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .team-row-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        max-width: calc(66.666% + 0.5rem);
+        margin: 0 auto;
+      }
 
-    /* Hapus semua gap */
-    html, body {
-      margin: 0;
-      padding: 0;
-      border: 0;
-    }
+      .member-card {
+        position: relative;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        background: var(--brown-dark);
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        transition:
+          transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.35s ease;
+      }
+      .member-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+      .member-img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.5s ease;
+      }
+      .member-card:hover .member-img {
+        transform: scale(1.04);
+      }
+      .member-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1.5rem 1.75rem;
+        background: linear-gradient(
+          0deg,
+          rgba(30, 18, 10, 0.88) 0%,
+          transparent 100%
+        );
+      }
+      .member-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: white;
+      }
+      .member-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          0deg,
+          rgba(30, 18, 10, 0.94) 0%,
+          rgba(30, 18, 10, 0.55) 55%,
+          transparent 100%
+        );
+        padding: 2rem 1.75rem 1.75rem;
+        transform: translateY(100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .member-card:hover .member-overlay {
+        transform: translateY(0);
+      }
+      .overlay-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 0.75rem;
+      }
+      .member-social {
+        display: flex;
+        gap: 0.6rem;
+      }
+      .member-social a {
+        width: 34px;
+        height: 34px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.8rem;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .member-social a:hover {
+        background: var(--orange);
+        border-color: var(--orange);
+      }
 
-    /* AUTHORS - using custom names to avoid Tailwind conflicts */
-    .author-card-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      align-items: center;
-      gap: 1.5rem;
-      justify-content: center;
-    }
+      .cta-band {
+        background: linear-gradient(135deg, var(--orange) 0%, #c96b0a 100%);
+        padding: 5rem 2.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-band::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .cta-band::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: -80px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+      }
+      .cta-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .cta-band h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.6rem;
+        font-weight: 900;
+        color: white;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+      .cta-band p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        font-weight: 300;
+      }
+      .cta-btns {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--brown);
+        color: white;
+        padding: 0.9rem 2.25rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.25s;
+        border: 2px solid var(--brown);
+      }
+      .btn-primary:hover {
+        background: var(--brown-dark);
+      }
+      .btn-outline {
+        background: transparent;
+        color: white;
+        padding: 0.9rem 2.25rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.25s;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+      }
+      .btn-outline:hover {
+        border-color: white;
+        background: rgba(255, 255, 255, 0.1);
+      }
 
-    .author-card {
-      position: relative;
-      text-align: center;
-      border: var(--custom-border);
-      box-shadow: var(--custom-shadow);
-      overflow: hidden;
-      border-radius: 0.5rem;
-    }
+      footer {
+        background: var(--brown-dark);
+        padding: 2.5rem;
+        text-align: center;
+      }
+      footer p {
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 0.85rem;
+      }
+      footer span {
+        color: var(--orange);
+      }
 
-    .author-card img {
-      width: 100%;
-      height: 26rem;
-      object-fit: cover;
-    }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero-content > * {
+        animation: fadeUp 0.7s ease both;
+      }
+      .hero-content > *:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .hero-content > *:nth-child(2) {
+        animation-delay: 0.25s;
+      }
+      .hero-content > *:nth-child(3) {
+        animation-delay: 0.4s;
+      }
 
-    .author-social {
-      position: absolute;
-      top: 0;
-      left: -10rem;
-    }
+      @media (max-width: 900px) {
+        .story {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .story-visual {
+          max-width: 420px;
+          margin: 0 auto;
+        }
+        .team-row-1 {
+          grid-template-columns: 1fr 1fr;
+        }
+        .team-row-2 {
+          max-width: 100%;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .story-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        .team-row-1 {
+          grid-template-columns: 1fr 1fr;
+        }
+        nav ul li a {
+          padding: 0.4rem 0.6rem;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon"></div>
+        <span class="nav-logo-text">Itha Snack</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="about.html" class="active">Tentang</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+          <li><a href="shop.html">Toko</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    .author-card:hover .author-social {
-      left: 1rem;
-    }
-
-    .author-social a {
-      height: 3.2rem;
-      width: 3.2rem;
-      line-height: 3.2rem;
-      font-size: 1.5rem;
-      background-color: var(--clr-white);
-      border: var(--custom-border);
-      display: block;
-      margin-top: 1rem;
-      border-radius: 1rem;
-      color: var(--clr-black);
-    }
-
-    .author-social a:hover {
-      background-color: var(--clr-black);
-      color: var(--clr-white);
-    }
-
-    .author-card h3 {
-      font-size: 2.5rem;
-      color: var(--clr-black);
-      padding: 1.5rem;
-      background-color: var(--clr-white);
-    }
-  </style>
-
-</head>
-
-<body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.js"></script>
-  <header class="bg-[#47382e] h-18 fixed z-10 w-screen">
-    <div class="container mx-auto px-4 flex justify-start">
-      <div class="mt-5 w-15">
-        <img src="./public/logo.png" alt="" />
+    <section class="hero">
+      <div class="hero-decor"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Cerita Kami</div>
+        <h1>Dibuat dengan <span>Cinta</span>,<br />untuk Dibagi Bersama</h1>
+        <p>
+          Kami percaya camilan yang baik bukan sekadar makanan — melainkan momen
+          kebahagiaan, tradisi, dan kehangatan yang tersimpan di setiap gigitan.
+        </p>
       </div>
-      <ul class="gap-3 flex items-center text-white text-lg font-semibold">
-        <li class="mt-5 font-montserrat">
-          <a class="text-lg" href="index.html">Home</a>
-        </li>
-        <li class="mt-5 font-montserrat">
-          <a class="text-lg" href="about.html">About</a>
-        </li>
-        <li class="mt-5 font-montserrat">
-          <a class="text-lg" href="contact.html">Contact</a>
-        </li>
-        <li class="mt-5 font-montserrat">
-          <a class="text-lg" href="shop.html">Shop</a>
-        </li>
-      </ul>
-    </div>
-  </header>
+    </section>
 
-  <!-- ABOUT -->
-
-  <!-- CARD -->
-  <section class="py-8">
-    <h1 class="text-4xl font-bold text-center mb-8" style="color: #333;">About US</h1>
-
-    <!-- First card -->
-    <div class="author-card-grid">
-      <div class="author-card">
-        <img src="/public/jk3.jpeg" alt="" />
-        <div class="author-social">
-          <a href="https://www.facebook.com/jk3jk1" class="fab fa-facebook-f"></a>
-          <a href="https://x.com/rendrabarlianto" class="fa-brands fa-x-twitter"></a>
-          <a href="https://www.instagram.com/jk3jk1/" class="fab fa-instagram"></a>
-          <a href="https://www.linkedin.com/in/dzaky-rendra-baruna-barlianto-34a518350/" class="fab fa-linkedin"></a>
+    <section style="background: var(--cream)">
+      <div class="story">
+        <div class="story-visual">
+          <div class="story-dots"></div>
+          <div class="story-img-frame">
+            <div class="story-img-placeholder">
+              <i class="fas fa-seedling"></i>
+            </div>
+          </div>
+          <div class="story-badge">
+            <div class="story-badge-num">5+</div>
+            <div class="story-badge-text">Tahun<br />Rasa</div>
+          </div>
         </div>
-        <h3>Dzaky</h3>
-      </div>
-
-      <!-- Second card -->
-      <div class="author-card">
-        <img src="/public/jk3.jpeg" alt="" />
-        <div class="author-social">
-          <a href="#" class="fab fa-facebook-f"></a>
-          <a href="#" class="fa-brands fa-x-twitter"></a>
-          <a href="#" class="fab fa-instagram"></a>
-          <a href="#" class="fab fa-linkedin"></a>
+        <div class="story-text">
+          <div class="section-label">Siapa Kami</div>
+          <h2>Dibuat Sedikit,<br />Rasa Luar Biasa</h2>
+          <p>
+            Itha Snack lahir dari kecintaan tulus terhadap cita rasa autentik
+            buatan rumah. Berawal dari resep akhir pekan yang dibagikan antar
+            keluarga, kini kami telah dipercaya oleh ratusan pelanggan.
+          </p>
+          <p>
+            Setiap produk yang kami buat membawa kehangatan dapur keluarga —
+            bahan-bahan pilihan, resep tradisional, dan penuh cinta.
+          </p>
+          <div class="story-stats">
+            <div class="stat-item">
+              <div class="stat-num">12K+</div>
+              <div class="stat-label">Pelanggan Puas</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">30+</div>
+              <div class="stat-label">Varian Camilan</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Bahan Alami</div>
+            </div>
+          </div>
         </div>
-        <h3>Imup</h3>
       </div>
+    </section>
 
-      <!-- Third Card -->
-      <div class="author-card">
-        <img src="/public/jk3.jpeg" alt="" />
-        <div class="author-social">
-          <a href="#" class="fab fa-facebook-f"></a>
-          <a href="#" class="fa-brands fa-x-twitter"></a>
-          <a href="#" class="fab fa-instagram"></a>
-          <a href="#" class="fab fa-linkedin"></a>
+    <section class="team-section">
+      <div class="team-inner">
+        <div class="team-header">
+          <div class="team-label">Orang-Orang di Balik Layar</div>
+          <h2>Kenali <em>Tim Kami</em></h2>
+          <p>
+            Sekumpulan pecinta makanan yang bersemangat, bersatu dalam satu
+            misi: membuat ngemil jadi sesuatu yang benar-benar istimewa.
+          </p>
         </div>
-        <h3>Toni harley</h3>
-      </div>
 
-      <!-- Four card -->
-      <div class="author-card">
-        <img src="/public/jk3.jpeg" alt="" />
-        <div class="author-social">
-          <a href="#" class="fab fa-facebook-f"></a>
-          <a href="#" class="fa-brands fa-x-twitter"></a>
-          <a href="#" class="fab fa-instagram"></a>
-          <a href="#" class="fab fa-linkedin"></a>
+        <div class="team-row-1">
+          <div class="member-card">
+            <div
+              class="member-img"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #2e2319 0%,
+                  #6b5447 55%,
+                  #e68019 100%
+                );
+              "
+            >
+              <i
+                class="fas fa-user"
+                style="font-size: 3.5rem; color: rgba(255, 255, 255, 0.07)"
+              ></i>
+            </div>
+            <div class="member-info"><div class="member-name">Dzaky</div></div>
+            <div class="member-overlay">
+              <div class="overlay-name">Dzaky</div>
+              <div class="member-social">
+                <a href="https://www.facebook.com/jk3jk1"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="https://x.com/rendrabarlianto"
+                  ><i class="fa-brands fa-x-twitter"></i
+                ></a>
+                <a href="https://www.instagram.com/jk3jk1/"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/dzaky-rendra-baruna-barlianto-34a518350/"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="member-card">
+            <div
+              class="member-img"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #3d2d25 0%,
+                  #7a5c4e 55%,
+                  #d4751a 100%
+                );
+              "
+            >
+              <i
+                class="fas fa-user"
+                style="font-size: 3.5rem; color: rgba(255, 255, 255, 0.07)"
+              ></i>
+            </div>
+            <div class="member-info"><div class="member-name">Imup</div></div>
+            <div class="member-overlay">
+              <div class="overlay-name">Imup</div>
+              <div class="member-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a
+                ><a href="#"><i class="fa-brands fa-x-twitter"></i></a
+                ><a href="#"><i class="fab fa-instagram"></i></a
+                ><a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="member-card">
+            <div
+              class="member-img"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #47382e 0%,
+                  #8a6a57 55%,
+                  #e07b10 100%
+                );
+              "
+            >
+              <i
+                class="fas fa-user"
+                style="font-size: 3.5rem; color: rgba(255, 255, 255, 0.07)"
+              ></i>
+            </div>
+            <div class="member-info">
+              <div class="member-name">Toni Harley</div>
+            </div>
+            <div class="member-overlay">
+              <div class="overlay-name">Toni Harley</div>
+              <div class="member-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a
+                ><a href="#"><i class="fa-brands fa-x-twitter"></i></a
+                ><a href="#"><i class="fab fa-instagram"></i></a
+                ><a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
-        <h3>Imup</h3>
-      </div>
-    </div>
-  </section>
-</body>
 
+        <div class="team-row-2">
+          <div class="member-card">
+            <div
+              class="member-img"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #2a1c15 0%,
+                  #5f4438 55%,
+                  #c96b0a 100%
+                );
+              "
+            >
+              <i
+                class="fas fa-user"
+                style="font-size: 3.5rem; color: rgba(255, 255, 255, 0.07)"
+              ></i>
+            </div>
+            <div class="member-info"><div class="member-name">Imup</div></div>
+            <div class="member-overlay">
+              <div class="overlay-name">Imup</div>
+              <div class="member-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a
+                ><a href="#"><i class="fa-brands fa-x-twitter"></i></a
+                ><a href="#"><i class="fab fa-instagram"></i></a
+                ><a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="member-card">
+            <div
+              class="member-img"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #1e1209 0%,
+                  #4d3228 55%,
+                  #b85f08 100%
+                );
+              "
+            >
+              <i
+                class="fas fa-user"
+                style="font-size: 3.5rem; color: rgba(255, 255, 255, 0.07)"
+              ></i>
+            </div>
+            <div class="member-info">
+              <div class="member-name">Fattah</div>
+            </div>
+            <div class="member-overlay">
+              <div class="overlay-name">Alfattah Sabil</div>
+              <div class="member-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a
+                ><a href="#"><i class="fa-brands fa-x-twitter"></i></a
+                ><a href="#"><i class="fab fa-instagram"></i></a
+                ><a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="cta-inner">
+        <h2>Siap Merasakan Perbedaannya?</h2>
+        <p>
+          Jelajahi rangkaian camilan buatan tangan kami — dibuat dari bahan
+          nyata, dengan kepedulian nyata, dan cinta yang tulus.
+        </p>
+        <div class="cta-btns">
+          <a href="shop.html" class="btn-primary">Lihat Toko</a>
+          <a href="contact.html" class="btn-outline">Hubungi Kami</a>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
-
-
